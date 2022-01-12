@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/abarmenkov/frontend-project-lvl1#readme",
   "dependencies": {
-    "make": "^0.8.1"
+    "make": "^0.8.1",
+    "readline-sync": "^1.4.10"
   },
   "bin": {
     "brain-games": "bin/brain-games.js"
-  }
+  },
+  "type": "module"
 }
