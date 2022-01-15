@@ -7,4 +7,5 @@
 ### Git Actions
 [![Build Status](https://github.com/hexlet-boilerplates/nodejs-package/workflows/Node%20CI/badge.svg)](https://github.com/abarmenkov/frontend-project-lvl1/actions/workflows/node.js.yml)
 
-[![asciicast](https://asciinema.org/a/14.png)](https://asciinema.org/a/14)
+### Asciinema
+[![asciicast](https://asciinema.org/a/Q8xqlM9aIYohXv2EiGCvmEWoF.svg)](https://asciinema.org/a/Q8xqlM9aIYohXv2EiGCvmEWoF)
