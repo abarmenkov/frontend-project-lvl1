@@ -6,10 +6,8 @@
 //import readlineSync from 'readline-sync';
 // eslint-disable-next-line sort-imports
 // eslint-disable-next-line import/extensions
-import BrainEven from './brainEven.js';
 
-export default function startGame() {
-  const game = new BrainEven();
+export default function startGame(game) {
   game.greetGamer();
   game.gameRules();
   if (game.playGame()) {

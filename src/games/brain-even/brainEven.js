@@ -1,11 +1,13 @@
+/* eslint-disable import/extensions */
 /* eslint-disable no-ternary */
 /* eslint-disable no-magic-numbers */
 /* eslint-disable func-names */
 /* eslint-disable class-methods-use-this */
 // eslint-disable-next-line import/extensions
 import GamesSettings from "../gamesSettings.js";
+import startGame from "./index.js";
 
-export default class BrainEven extends GamesSettings {
+class BrainEven extends GamesSettings {
   positiveAnswer = 'yes';
 
   negativeAnswer = 'no';
@@ -54,4 +56,9 @@ export default class BrainEven extends GamesSettings {
     }
     return true;
   };
+}
+
+export default function init(roundsNumber, maxNumber) {
+  const game = new BrainEven(roundsNumber, maxNumber);
+  startGame(game);
 }
