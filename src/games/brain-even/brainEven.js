@@ -1,11 +1,13 @@
+/* eslint-disable sort-imports */
 /* eslint-disable import/extensions */
 /* eslint-disable no-ternary */
 /* eslint-disable no-magic-numbers */
 /* eslint-disable func-names */
 /* eslint-disable class-methods-use-this */
 // eslint-disable-next-line import/extensions
+import readlineSync from 'readline-sync';
 import GamesSettings from "../gamesSettings.js";
-import startGame from "./index.js";
+import startGame from "../index.js";
 
 class BrainEven extends GamesSettings {
   positiveAnswer = 'yes';
@@ -22,6 +24,10 @@ class BrainEven extends GamesSettings {
 
   guessCheck = function (num) {
     return this.isEven(num) ? this.positiveAnswer : this.negativeAnswer;
+  };
+
+  gamerGuess = function () {
+    this.guess = readlineSync.question(`Question:  ${this.generatedNumber} `);
   };
 
   getGuessResult = function (number, guess) {

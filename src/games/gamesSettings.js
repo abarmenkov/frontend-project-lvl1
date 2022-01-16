@@ -5,9 +5,11 @@
 import readlineSync from 'readline-sync';
 
 export default class GamesSettings {
-  constructor(roundsNumber = 3, maxNumber = 100) {
+  // eslint-disable-next-line array-element-newline
+  constructor(roundsNumber = 3, maxNumber = 100, signList = ['+', '-', '*']) {
     this.roundsNumber = roundsNumber;
     this.maxNumber = maxNumber;
+    this.signList = signList;
   }
 
   gamerName;
@@ -15,6 +17,8 @@ export default class GamesSettings {
   correctAnswer;
 
   generatedNumber;
+
+  generatedSecondNumber;
 
   guess;
 
@@ -27,11 +31,7 @@ export default class GamesSettings {
   };
 
   generateNumber = function () {
-    return Math.ceil(Math.random() * this.maxNumber);
-  };
-
-  gamerGuess = function () {
-    this.guess = readlineSync.question(`Question:  ${this.generatedNumber} `);
+    return Math.round(Math.random() * this.maxNumber);
   };
 
   congratulate = function () {
