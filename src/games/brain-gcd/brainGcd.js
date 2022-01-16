@@ -11,43 +11,27 @@ import readlineSync from 'readline-sync';
 import GamesSettings from "../gamesSettings.js";
 import startGame from '../index.js';
 
-class BrainCalc extends GamesSettings {
-
-  generatedSign;
-
-  generateSign = function() {
-    return this.signList[Math.round(Math.random() * (this.signList.length - 1))];
-  };
-
-  sum = function(num1, num2) {
-    return num1 + num2;
-  };
-
-  multiply = function(num1, num2) {
-    return num1 * num2;
-  };
-
-  subtract = function(num1, num2) {
-    return num1 - num2;
-  };
+class BrainGcd extends GamesSettings {
 
   gameRules = function() {
-    console.log('What is the result of the expression?');
+    console.log('Find the greatest common divisor of given numbers.');
   };
 
   gamerGuess = function () {
-    this.guess = readlineSync.question(`Question:  ${this.generatedNumber} ${this.generatedSign} ${this.generatedSecondNumber} `);
+    this.guess = readlineSync.question(`Question:  ${this.generatedNumber} ${this.generatedSecondNumber} `);
   };
 
-  getResult = function (num1, num2, sign) {
-    // eslint-disable-next-line no-nested-ternary
-    return sign === '+' ? this.sum(num1, num2) : sign === '-' ? this.subtract(num1, num2) : this.multiply(num1, num2);
+  // eslint-disable-next-line id-length
+  NOD = function (x, y) {
+    if (y > x) return this.NOD(y, x);
+    if (!y) return x;
+    return this.NOD(y, x % y);
   };
 
   // eslint-disable-next-line max-params
-  getGuessResult = function (num1, num2, sign, guess) {
-    // eslint-disable-next-line max-len
-    return this.getResult(num1, num2, sign) === Number(guess);
+  getGuessResult = function (num1, num2, guess) {
+
+    return this.NOD(num1, num2) === Number(guess);
   };
 
   checkResult = function () {
@@ -68,12 +52,11 @@ class BrainCalc extends GamesSettings {
     while (this.roundsNumber > 0) {
       this.generatedNumber = this.generateNumber();
       this.generatedSecondNumber = this.generateNumber();
-      this.generatedSign = this.generateSign();
       this.gamerGuess();
       this.printAnswer();
       // eslint-disable-next-line max-len
-      this.result = this.getGuessResult(this.generatedNumber, this.generatedSecondNumber, this.generatedSign, this.guess);
-      this.correctAnswer = this.getResult(this.generatedNumber, this.generatedSecondNumber, this.generatedSign);
+      this.result = this.getGuessResult(this.generatedNumber, this.generatedSecondNumber, this.guess);
+      this.correctAnswer = this.NOD(this.generatedNumber, this.generatedSecondNumber);
       if (!this.checkResult(this.result)) {
         return false;
       }
@@ -83,6 +66,6 @@ class BrainCalc extends GamesSettings {
 }
 
 export default function init(roundsNumber, num) {
-  const game = new BrainCalc(roundsNumber, num);
+  const game = new BrainGcd(roundsNumber, num);
   startGame(game);
 }
