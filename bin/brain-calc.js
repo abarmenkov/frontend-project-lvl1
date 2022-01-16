@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-magic-numbers */
 /* eslint-disable eol-last */
 /* eslint-disable import/extensions */
 
