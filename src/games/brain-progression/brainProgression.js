@@ -65,20 +65,6 @@ class BrainProgression extends GamesSettings {
     return this.splicedNumber === Number(guess);
   };
 
-  checkResult = function () {
-    if (this.result) {
-      this.printCorrect();
-      // eslint-disable-next-line no-plusplus
-      this.roundsNumber--;
-    } else {
-      // eslint-disable-next-line no-useless-concat
-      this.printWrongAnswer();
-      this.printTryAgain();
-      return false;
-    }
-    return true;
-  };
-
   playGame = function () {
     while (this.roundsNumber > 0) {
       this.generatedNumber = this.generateNumber(this.maxNumber);

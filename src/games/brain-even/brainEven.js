@@ -35,20 +35,6 @@ class BrainEven extends GamesSettings {
     return (this.isEven(number) && guess === this.positiveAnswer) || (!this.isEven(number) && guess === this.negativeAnswer);
   };
 
-  checkResult = function () {
-    if (this.result) {
-      this.printCorrect();
-      // eslint-disable-next-line no-plusplus
-      this.roundsNumber--;
-    } else {
-      // eslint-disable-next-line no-useless-concat
-      this.printWrongAnswer();
-      this.printTryAgain();
-      return false;
-    }
-    return true;
-  };
-
   playGame = function () {
     while (this.roundsNumber > 0) {
       this.generatedNumber = this.generateNumber(this.maxNumber);

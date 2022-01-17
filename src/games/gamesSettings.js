@@ -33,6 +33,20 @@ export default class GamesSettings {
   generateNumber = function (num) {
     return Math.round(Math.random() * num);
   };
+  
+  checkResult = function () {
+    if (this.result) {
+      this.printCorrect();
+      // eslint-disable-next-line no-plusplus
+      this.roundsNumber--;
+    } else {
+      // eslint-disable-next-line no-useless-concat
+      this.printWrongAnswer();
+      this.printTryAgain();
+      return false;
+    }
+    return true;
+  };
 
   congratulate = function () {
     console.log(`Congratulations, ${this.gamerName}!`);
