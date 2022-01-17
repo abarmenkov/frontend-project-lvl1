@@ -15,8 +15,9 @@ class BrainCalc extends GamesSettings {
 
   generatedSign;
 
-  generateSign = function() {
-    return this.signList[Math.round(Math.random() * (this.signList.length - 1))];
+  generateSign = function(num) {
+    const index = this.generateNumber(num);
+    return this.signList[index];
   };
 
   sum = function(num1, num2) {
@@ -66,9 +67,9 @@ class BrainCalc extends GamesSettings {
 
   playGame = function () {
     while (this.roundsNumber > 0) {
-      this.generatedNumber = this.generateNumber();
-      this.generatedSecondNumber = this.generateNumber();
-      this.generatedSign = this.generateSign();
+      this.generatedNumber = this.generateNumber(this.maxNumber);
+      this.generatedSecondNumber = this.generateNumber(this.maxNumber);
+      this.generatedSign = this.generateSign(this.signList.length - 1);
       this.gamerGuess();
       this.printAnswer();
       // eslint-disable-next-line max-len

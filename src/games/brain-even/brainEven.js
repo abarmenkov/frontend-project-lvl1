@@ -51,7 +51,7 @@ class BrainEven extends GamesSettings {
 
   playGame = function () {
     while (this.roundsNumber > 0) {
-      this.generatedNumber = this.generateNumber();
+      this.generatedNumber = this.generateNumber(this.maxNumber);
       this.gamerGuess();
       this.printAnswer();
       this.result = this.getGuessResult(this.generatedNumber, this.guess);

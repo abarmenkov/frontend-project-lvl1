@@ -30,8 +30,8 @@ export default class GamesSettings {
     console.log(`Hello,  ${this.gamerName}!`);
   };
 
-  generateNumber = function () {
-    return Math.round(Math.random() * this.maxNumber);
+  generateNumber = function (num) {
+    return Math.round(Math.random() * num);
   };
 
   congratulate = function () {
