@@ -23,6 +23,10 @@ export default class GamesSettings {
   guess;
 
   result;
+  
+  positiveAnswer = 'yes';
+
+  negativeAnswer = 'no';
 
   greetGamer = function () {
     console.log('Welcome to the Brain Games!');

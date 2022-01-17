@@ -10,9 +10,6 @@ import GamesSettings from "../gamesSettings.js";
 import startGame from "../index.js";
 
 class BrainEven extends GamesSettings {
-  positiveAnswer = 'yes';
-
-  negativeAnswer = 'no';
 
   gameRules = function() {
     console.log('Answer yes if the number is even, otherwise answer no.');

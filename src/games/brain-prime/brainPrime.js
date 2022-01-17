@@ -11,9 +11,6 @@ import GamesSettings from "../gamesSettings.js";
 import startGame from "../index.js";
 
 class BrainPrime extends GamesSettings {
-  positiveAnswer = 'yes';
-
-  negativeAnswer = 'no';
 
   gameRules = function() {
     console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
