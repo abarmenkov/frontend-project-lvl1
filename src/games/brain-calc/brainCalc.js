@@ -19,7 +19,7 @@ export class BrainCalc extends GamesSettings {
     return this.signList[index];
   }
 
-  sum (num1, num2) {
+  sum(num1, num2) {
     return num1 + num2;
   }
 
@@ -45,9 +45,9 @@ export class BrainCalc extends GamesSettings {
   }
 
   // eslint-disable-next-line max-params
-  getGuessResult(num1, num2, sign, guess) {
+  getGuessResult(correctAnswer, guess) {
     // eslint-disable-next-line max-len
-    return this.getResult(num1, num2, sign) === Number(guess);
+    return correctAnswer === Number(guess);
   }
 
   playGame() {
@@ -58,8 +58,8 @@ export class BrainCalc extends GamesSettings {
       this.gamerGuess();
       this.printAnswer();
       // eslint-disable-next-line max-len
-      this.result = this.getGuessResult(this.generatedNumber, this.generatedSecondNumber, this.generatedSign, this.guess);
       this.correctAnswer = this.getResult(this.generatedNumber, this.generatedSecondNumber, this.generatedSign);
+      this.result = this.getGuessResult(this.correctAnswer, this.guess);
       if (!this.checkResult(this.result)) {
         return false;
       }

@@ -27,34 +27,34 @@ export default class GamesSettings {
 
   result
 
-  positiveAnswer = 'yes';
+  positiveAnswer = 'yes'
 
-  negativeAnswer = 'no';
+  negativeAnswer = 'no'
 
-  greetGamer = function () {
+  greetGamer() {
     console.log('Welcome to the Brain Games!');
     this.gamerName = readlineSync.question('May I have your name? ');
     console.log(`Hello,  ${this.gamerName}!`);
-  };
+  }
 
-  generateNumber = function (num) {
+  generateNumber(num) {
     return Math.round(Math.random() * num);
-  };
+  }
 
-  getGuess = function (func) {
+  getGuess(func) {
     this.generatedNumber = this.generateNumber(this.maxNumber);
     this.gamerGuess();
     this.printAnswer();
     this.result = this.getGuessResult(func(this.generatedNumber), this.guess);
     this.correctAnswer = this.guessCheck(this.generatedNumber);
-  };
+  }
 
-  getGuessResult = function (checkedNum, guess) {
+  getGuessResult(checkedNum, guess) {
     // eslint-disable-next-line max-len
     return (checkedNum && guess === this.positiveAnswer) || (!checkedNum && guess === this.negativeAnswer);
-  };
+  }
   
-  checkResult = function () {
+  checkResult() {
     if (this.result) {
       this.printCorrect();
       // eslint-disable-next-line no-plusplus
@@ -66,25 +66,25 @@ export default class GamesSettings {
       return false;
     }
     return true;
-  };
+  }
 
-  congratulate = function () {
+  congratulate() {
     console.log(`Congratulations, ${this.gamerName}!`);
-  };
+  }
 
-  printCorrect = function () {
+  printCorrect() {
     console.log('Correct!');
-  };
+  }
   
-  printTryAgain = function () {
+  printTryAgain() {
     console.log(`Let's try again, ${this.gamerName}!`);
-  };
+  }
 
-  printWrongAnswer = function () {
+  printWrongAnswer() {
     console.log(`"${this.guess}" is wrong answer :(. Correct answer was "${this.correctAnswer}".`);
-  };
+  }
 
-  printAnswer = function () {
+  printAnswer() {
     console.log(`Your answer: ${this.guess}`);
-  };
+  }
 }

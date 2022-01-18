@@ -29,9 +29,8 @@ class BrainGcd extends GamesSettings {
   }
 
   // eslint-disable-next-line max-params
-  getGuessResult(num1, num2, guess) {
-
-    return this.NOD(num1, num2) === Number(guess);
+  getGuessResult(correctAnswer, guess) {
+    return correctAnswer === Number(guess);
   }
 
   playGame() {
@@ -41,8 +40,8 @@ class BrainGcd extends GamesSettings {
       this.gamerGuess();
       this.printAnswer();
       // eslint-disable-next-line max-len
-      this.result = this.getGuessResult(this.generatedNumber, this.generatedSecondNumber, this.guess);
       this.correctAnswer = this.NOD(this.generatedNumber, this.generatedSecondNumber);
+      this.result = this.getGuessResult(this.correctAnswer, this.guess);
       if (!this.checkResult(this.result)) {
         return false;
       }
