@@ -16,7 +16,7 @@ class BrainPrime extends GamesSettings {
     console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   }
 
-  isPrime = function(num) {
+  isPrime(num) {
     // eslint-disable-next-line id-length
     for (let i = 2; i < num; i++) {
       if (num % i === 0) {
@@ -24,17 +24,17 @@ class BrainPrime extends GamesSettings {
       }
     }
     return num > 1;
-  };
+  }
 
-  guessCheck = function (num) {
+  guessCheck(num) {
     return this.isPrime(num) ? this.positiveAnswer : this.negativeAnswer;
-  };
+  }
 
-  gamerGuess = function () {
+  gamerGuess() {
     this.guess = readlineSync.question(`Question: ${this.generatedNumber} `);
-  };
+  }
 
-  playGame = function () {
+  playGame() {
     while (this.roundsNumber > 0) {
       this.getGuess(this.isPrime);
       if (!this.checkResult(this.result)) {
@@ -42,7 +42,7 @@ class BrainPrime extends GamesSettings {
       }
     }
     return true;
-  };
+  }
 }
 
 export default function init(roundsNumber, maxNumber) {

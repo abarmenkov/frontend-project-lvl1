@@ -17,40 +17,40 @@ export class BrainCalc extends GamesSettings {
   generateSign(num) {
     const index = this.generateNumber(num);
     return this.signList[index];
-  };
+  }
 
-  sum = function(num1, num2) {
+  sum (num1, num2) {
     return num1 + num2;
-  };
+  }
 
-  multiply = function(num1, num2) {
+  multiply(num1, num2) {
     return num1 * num2;
-  };
+  }
 
-  subtract = function(num1, num2) {
+  subtract(num1, num2) {
     return num1 - num2;
-  };
+  }
 
-  gameRules = function() {
+  gameRules() {
     console.log('What is the result of the expression?');
-  };
+  }
 
-  gamerGuess = function () {
+  gamerGuess() {
     this.guess = readlineSync.question(`Question: ${this.generatedNumber} ${this.generatedSign} ${this.generatedSecondNumber} `);
-  };
+  }
 
-  getResult = function (num1, num2, sign) {
+  getResult(num1, num2, sign) {
     // eslint-disable-next-line no-nested-ternary
     return sign === '+' ? this.sum(num1, num2) : sign === '-' ? this.subtract(num1, num2) : this.multiply(num1, num2);
-  };
+  }
 
   // eslint-disable-next-line max-params
-  getGuessResult = function (num1, num2, sign, guess) {
+  getGuessResult(num1, num2, sign, guess) {
     // eslint-disable-next-line max-len
     return this.getResult(num1, num2, sign) === Number(guess);
-  };
+  }
 
-  playGame = function () {
+  playGame() {
     while (this.roundsNumber > 0) {
       this.generatedNumber = this.generateNumber(this.maxNumber);
       this.generatedSecondNumber = this.generateNumber(this.maxNumber);
@@ -65,7 +65,7 @@ export class BrainCalc extends GamesSettings {
       }
     }
     return true;
-  };
+  }
 }
 
 export default function init(roundsNumber, num) {

@@ -26,16 +26,16 @@ class BrainProgression extends GamesSettings {
 
   splicedNumber
 
-  gameRules = function() {
+  gameRules() {
     console.log('What number is missing in the progression?');
-  };
+  }
 
   // num -диапазон шага до какого числа, +1 -чтобы шаг не был равен 0
-  getProgressionStep = function(num) {
+  getProgressionStep(num) {
     return this.generateNumber(num) + 1;
-  };
+  }
 
-  generateArrNumbers = function(step, num) {
+  generateArrNumbers(step, num) {
     const arr = [];
     let arrLength = this.generateNumber(num);
     if (arrLength < this.length) {
@@ -50,23 +50,23 @@ class BrainProgression extends GamesSettings {
     }
     this.splicedNumber = Number(arr.splice(this.getHideIndex(arrLength), 1, '..').join());
     return arr.join(' ');
-  };
+  }
 
-  getHideIndex = function (length) {
+  getHideIndex(length) {
     return this.generateNumber(length - 1);
-  };
+  }
 
-  gamerGuess = function () {
+  gamerGuess() {
     this.guess = readlineSync.question(`Question: ${this.generateArrNumbers(this.maxStep, this.maxNumber)} `);
-  };
+  }
 
   // eslint-disable-next-line max-params
-  getGuessResult = function (guess) {
+  getGuessResult(guess) {
 
     return this.splicedNumber === Number(guess);
-  };
+  }
 
-  playGame = function () {
+  playGame() {
     while (this.roundsNumber > 0) {
       this.gamerGuess();
       this.printAnswer();
@@ -78,7 +78,7 @@ class BrainProgression extends GamesSettings {
       }
     }
     return true;
-  };
+  }
 }
 
 export default function init(roundsNumber, num) {

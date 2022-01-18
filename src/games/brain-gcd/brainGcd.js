@@ -17,24 +17,24 @@ class BrainGcd extends GamesSettings {
     console.log('Find the greatest common divisor of given numbers.');
   }
 
-  gamerGuess = function () {
+  gamerGuess() {
     this.guess = readlineSync.question(`Question: ${this.generatedNumber} ${this.generatedSecondNumber} `);
-  };
+  }
 
   // eslint-disable-next-line id-length
-  NOD = function (x, y) {
+  NOD(x, y) {
     if (y > x) return this.NOD(y, x);
     if (!y) return x;
     return this.NOD(y, x % y);
-  };
+  }
 
   // eslint-disable-next-line max-params
-  getGuessResult = function (num1, num2, guess) {
+  getGuessResult(num1, num2, guess) {
 
     return this.NOD(num1, num2) === Number(guess);
-  };
+  }
 
-  playGame = function () {
+  playGame() {
     while (this.roundsNumber > 0) {
       this.generatedNumber = this.generateNumber(this.maxNumber);
       this.generatedSecondNumber = this.generateNumber(this.maxNumber);
@@ -48,7 +48,7 @@ class BrainGcd extends GamesSettings {
       }
     }
     return true;
-  };
+  }
 }
 
 export default function init(roundsNumber, num) {

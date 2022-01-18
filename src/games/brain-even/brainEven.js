@@ -15,19 +15,19 @@ class BrainEven extends GamesSettings {
     console.log('Answer yes if the number is even, otherwise answer no.');
   }
 
-  isEven = function(num) {
+  isEven(num) {
     return num % 2 === 0;
-  };
+  }
 
-  guessCheck = function (num) {
+  guessCheck(num) {
     return this.isEven(num) ? this.positiveAnswer : this.negativeAnswer;
-  };
+  }
 
-  gamerGuess = function () {
+  gamerGuess() {
     this.guess = readlineSync.question(`Question: ${this.generatedNumber} `);
-  };
+  }
 
-  playGame = function () {
+  playGame() {
     while (this.roundsNumber > 0) {
       this.getGuess(this.isEven);
       if (!this.checkResult(this.result)) {
@@ -35,7 +35,7 @@ class BrainEven extends GamesSettings {
       }
     }
     return true;
-  };
+  }
 }
 
 export default function init(roundsNumber, maxNumber) {
