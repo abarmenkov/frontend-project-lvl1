@@ -29,9 +29,7 @@ class BrainEven extends GamesSettings {
 
   playGame = function () {
     while (this.roundsNumber > 0) {
-      this.getGuess();
-      this.result = this.getGuessResult(this.isEven(this.generatedNumber), this.guess);
-      this.correctAnswer = this.guessCheck(this.generatedNumber);
+      this.getGuess(this.isEven);
       if (!this.checkResult(this.result)) {
         return false;
       }

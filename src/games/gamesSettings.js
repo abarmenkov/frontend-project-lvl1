@@ -38,10 +38,12 @@ export default class GamesSettings {
     return Math.round(Math.random() * num);
   };
 
-  getGuess = function () {
+  getGuess = function (func) {
     this.generatedNumber = this.generateNumber(this.maxNumber);
     this.gamerGuess();
     this.printAnswer();
+    this.result = this.getGuessResult(func(this.generatedNumber), this.guess);
+    this.correctAnswer = this.guessCheck(this.generatedNumber);
   };
 
   getGuessResult = function (checkedNum, guess) {
