@@ -15,8 +15,8 @@ class BrainEven extends GamesSettings {
     console.log('Answer yes if the number is even, otherwise answer no.');
   };
 
-  isEven = function(number) {
-    return number % 2 === 0;
+  isEven = function(num) {
+    return num % 2 === 0;
   };
 
   guessCheck = function (num) {
@@ -27,17 +27,12 @@ class BrainEven extends GamesSettings {
     this.guess = readlineSync.question(`Question:  ${this.generatedNumber} `);
   };
 
-  getGuessResult = function (number, guess) {
-    // eslint-disable-next-line max-len
-    return (this.isEven(number) && guess === this.positiveAnswer) || (!this.isEven(number) && guess === this.negativeAnswer);
-  };
-
   playGame = function () {
     while (this.roundsNumber > 0) {
       this.generatedNumber = this.generateNumber(this.maxNumber);
       this.gamerGuess();
       this.printAnswer();
-      this.result = this.getGuessResult(this.generatedNumber, this.guess);
+      this.result = this.getGuessResult(this.isEven(this.generatedNumber), this.guess);
       this.correctAnswer = this.guessCheck(this.generatedNumber);
       if (!this.checkResult(this.result)) {
         return false;

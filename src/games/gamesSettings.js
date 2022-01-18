@@ -23,7 +23,7 @@ export default class GamesSettings {
   guess;
 
   result;
-  
+
   positiveAnswer = 'yes';
 
   negativeAnswer = 'no';
@@ -36,6 +36,11 @@ export default class GamesSettings {
 
   generateNumber = function (num) {
     return Math.round(Math.random() * num);
+  };
+
+  getGuessResult = function (checkedNum, guess) {
+    // eslint-disable-next-line max-len
+    return (checkedNum && guess === this.positiveAnswer) || (!checkedNum && guess === this.negativeAnswer);
   };
   
   checkResult = function () {

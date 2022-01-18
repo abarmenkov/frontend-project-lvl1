@@ -34,17 +34,12 @@ class BrainPrime extends GamesSettings {
     this.guess = readlineSync.question(`Question:  ${this.generatedNumber} `);
   };
 
-  getGuessResult = function (number, guess) {
-    // eslint-disable-next-line max-len
-    return (this.isPrime(number) && guess === this.positiveAnswer) || (!this.isPrime(number) && guess === this.negativeAnswer);
-  };
-
   playGame = function () {
     while (this.roundsNumber > 0) {
       this.generatedNumber = this.generateNumber(this.maxNumber);
       this.gamerGuess();
       this.printAnswer();
-      this.result = this.getGuessResult(this.generatedNumber, this.guess);
+      this.result = this.getGuessResult(this.isPrime(this.generatedNumber), this.guess);
       this.correctAnswer = this.guessCheck(this.generatedNumber);
       if (!this.checkResult(this.result)) {
         return false;
