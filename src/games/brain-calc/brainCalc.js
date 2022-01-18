@@ -11,7 +11,7 @@ import readlineSync from 'readline-sync';
 import GamesSettings from "../gamesSettings.js";
 import startGame from '../index.js';
 
-class BrainCalc extends GamesSettings {
+export class BrainCalc extends GamesSettings {
 
   // eslint-disable-next-line semi
   generatedSign
