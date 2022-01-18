@@ -13,7 +13,8 @@ import startGame from '../index.js';
 
 class BrainCalc extends GamesSettings {
 
-  generatedSign;
+  // eslint-disable-next-line semi
+  generatedSign
 
   generateSign = function(num) {
     const index = this.generateNumber(num);

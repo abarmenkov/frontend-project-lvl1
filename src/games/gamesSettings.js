@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable func-names */
@@ -12,17 +13,17 @@ export default class GamesSettings {
     this.signList = signList;
   }
 
-  gamerName;
+  gamerName
 
-  correctAnswer;
+  correctAnswer
 
-  generatedNumber;
+  generatedNumber
 
-  generatedSecondNumber;
+  generatedSecondNumber
 
-  guess;
+  guess
 
-  result;
+  result
 
   positiveAnswer = 'yes';
 

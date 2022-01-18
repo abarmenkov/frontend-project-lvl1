@@ -1,3 +1,4 @@
+/* eslint-disable eol-last */
 /* eslint-disable spaced-comment */
 /* eslint-disable sort-imports */
 /* eslint-disable no-magic-numbers */

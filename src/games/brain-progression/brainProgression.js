@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 /* eslint-disable max-params */
 /* eslint-disable id-length */
 /* eslint-disable max-len */
@@ -21,9 +22,9 @@ class BrainProgression extends GamesSettings {
     this.maxStep = maxStep;
   }
 
-  generatedArray;
+  generatedArray
 
-  splicedNumber;
+  splicedNumber
 
   gameRules = function() {
     console.log('What number is missing in the progression?');
