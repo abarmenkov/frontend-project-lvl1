@@ -3,6 +3,6 @@
 /* eslint-disable eol-last */
 /* eslint-disable import/extensions */
 
-import init from "../src/games/brain-calc/brainCalc.js";
+import init from '../src/games/brain-calc/brainCalc.js';
 
 init(3, 10);

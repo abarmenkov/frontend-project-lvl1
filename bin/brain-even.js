@@ -1,6 +1,7 @@
 #!/usr/bin/env node
+/* eslint-disable import/extensions */
+/* eslint-disable eol-last */
 
-// eslint-disable-next-line import/extensions
 import init from '../src/games/brain-even/brainEven.js';
 
 init();

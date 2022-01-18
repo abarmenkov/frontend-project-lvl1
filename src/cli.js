@@ -1,3 +1,4 @@
+/* eslint-disable eol-last */
 import readlineSync from 'readline-sync';
 
 export default function greetGamer() {
