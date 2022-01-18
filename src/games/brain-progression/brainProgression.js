@@ -67,8 +67,6 @@ class BrainProgression extends GamesSettings {
 
   playGame = function () {
     while (this.roundsNumber > 0) {
-      this.generatedNumber = this.generateNumber(this.maxNumber);
-      this.generatedSecondNumber = this.generateNumber(this.maxNumber);
       this.gamerGuess();
       this.printAnswer();
       // eslint-disable-next-line max-len

@@ -38,6 +38,12 @@ export default class GamesSettings {
     return Math.round(Math.random() * num);
   };
 
+  getGuess = function () {
+    this.generatedNumber = this.generateNumber(this.maxNumber);
+    this.gamerGuess();
+    this.printAnswer();
+  };
+
   getGuessResult = function (checkedNum, guess) {
     // eslint-disable-next-line max-len
     return (checkedNum && guess === this.positiveAnswer) || (!checkedNum && guess === this.negativeAnswer);

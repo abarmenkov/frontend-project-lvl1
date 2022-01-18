@@ -36,9 +36,7 @@ class BrainPrime extends GamesSettings {
 
   playGame = function () {
     while (this.roundsNumber > 0) {
-      this.generatedNumber = this.generateNumber(this.maxNumber);
-      this.gamerGuess();
-      this.printAnswer();
+      this.getGuess();
       this.result = this.getGuessResult(this.isPrime(this.generatedNumber), this.guess);
       this.correctAnswer = this.guessCheck(this.generatedNumber);
       if (!this.checkResult(this.result)) {
