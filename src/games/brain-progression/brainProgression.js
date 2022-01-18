@@ -56,7 +56,7 @@ class BrainProgression extends GamesSettings {
   };
 
   gamerGuess = function () {
-    this.guess = readlineSync.question(`Question:  ${this.generateArrNumbers(this.maxStep, this.maxNumber)} `);
+    this.guess = readlineSync.question(`Question: ${this.generateArrNumbers(this.maxStep, this.maxNumber)} `);
   };
 
   // eslint-disable-next-line max-params
