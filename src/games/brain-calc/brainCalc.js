@@ -1,3 +1,4 @@
+/* eslint-disable no-extra-semi */
 /* eslint-disable max-len */
 /* eslint-disable max-statements */
 /* eslint-disable sort-imports */
@@ -13,7 +14,7 @@ import startGame from '../index.js';
 
 export class BrainCalc extends GamesSettings {
 
-  generateSign = function(num) {
+  generateSign(num) {
     const index = this.generateNumber(num);
     return this.signList[index];
   };

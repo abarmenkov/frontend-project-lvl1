@@ -11,9 +11,9 @@ import startGame from "../index.js";
 
 class BrainEven extends GamesSettings {
 
-  gameRules = function() {
+  gameRules() {
     console.log('Answer yes if the number is even, otherwise answer no.');
-  };
+  }
 
   isEven = function(num) {
     return num % 2 === 0;

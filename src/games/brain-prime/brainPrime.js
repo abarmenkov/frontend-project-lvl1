@@ -12,9 +12,9 @@ import startGame from "../index.js";
 
 class BrainPrime extends GamesSettings {
 
-  gameRules = function() {
+  gameRules() {
     console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  };
+  }
 
   isPrime = function(num) {
     // eslint-disable-next-line id-length

@@ -13,9 +13,9 @@ import startGame from '../index.js';
 
 class BrainGcd extends GamesSettings {
 
-  gameRules = function() {
+  gameRules() {
     console.log('Find the greatest common divisor of given numbers.');
-  };
+  }
 
   gamerGuess = function () {
     this.guess = readlineSync.question(`Question: ${this.generatedNumber} ${this.generatedSecondNumber} `);
