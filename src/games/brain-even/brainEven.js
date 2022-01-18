@@ -24,7 +24,7 @@ class BrainEven extends GamesSettings {
   };
 
   gamerGuess = function () {
-    this.guess = readlineSync.question(`Question:  ${this.generatedNumber} `);
+    this.guess = readlineSync.question(`Question: ${this.generatedNumber} `);
   };
 
   playGame = function () {

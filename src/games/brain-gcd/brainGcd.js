@@ -18,7 +18,7 @@ class BrainGcd extends GamesSettings {
   };
 
   gamerGuess = function () {
-    this.guess = readlineSync.question(`Question:  ${this.generatedNumber} ${this.generatedSecondNumber} `);
+    this.guess = readlineSync.question(`Question: ${this.generatedNumber} ${this.generatedSecondNumber} `);
   };
 
   // eslint-disable-next-line id-length

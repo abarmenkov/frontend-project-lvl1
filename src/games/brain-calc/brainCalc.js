@@ -37,7 +37,7 @@ class BrainCalc extends GamesSettings {
   };
 
   gamerGuess = function () {
-    this.guess = readlineSync.question(`Question:  ${this.generatedNumber} ${this.generatedSign} ${this.generatedSecondNumber} `);
+    this.guess = readlineSync.question(`Question: ${this.generatedNumber} ${this.generatedSign} ${this.generatedSecondNumber} `);
   };
 
   getResult = function (num1, num2, sign) {
