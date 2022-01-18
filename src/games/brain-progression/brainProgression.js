@@ -14,7 +14,7 @@ import readlineSync from 'readline-sync';
 import GamesSettings from "../gamesSettings.js";
 import startGame from '../index.js';
 
-class BrainProgression extends GamesSettings {
+export class BrainProgression extends GamesSettings {
   constructor (roundsNumber, maxNumber = 30, maxStep = 10, length = 6) {
     super(roundsNumber);
     this.maxNumber = maxNumber;

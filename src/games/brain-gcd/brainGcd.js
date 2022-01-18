@@ -11,7 +11,7 @@ import readlineSync from 'readline-sync';
 import GamesSettings from "../gamesSettings.js";
 import startGame from '../index.js';
 
-class BrainGcd extends GamesSettings {
+export class BrainGcd extends GamesSettings {
 
   gameRules() {
     console.log('Find the greatest common divisor of given numbers.');

@@ -9,7 +9,7 @@ import readlineSync from 'readline-sync';
 import GamesSettings from "../gamesSettings.js";
 import startGame from "../index.js";
 
-class BrainEven extends GamesSettings {
+export class BrainEven extends GamesSettings {
 
   gameRules() {
     console.log('Answer yes if the number is even, otherwise answer no.');

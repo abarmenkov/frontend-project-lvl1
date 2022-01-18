@@ -10,7 +10,7 @@ import readlineSync from 'readline-sync';
 import GamesSettings from "../gamesSettings.js";
 import startGame from "../index.js";
 
-class BrainPrime extends GamesSettings {
+export class BrainPrime extends GamesSettings {
 
   gameRules() {
     console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
