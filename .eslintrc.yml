@@ -54,6 +54,10 @@ rules:
   id-length: error
   id-match: error
   implicit-arrow-linebreak: error
+  import/extensions: # FIXME: remove when rule will be adjusted for new nodejs version
+    - error
+    - ignorePackages
+    - js: always
   indent: error
   init-declarations: error
   jsx-quotes: error
@@ -148,7 +152,7 @@ rules:
   no-trailing-spaces: error
   no-undef-init: error
   no-undefined: error
-  no-underscore-dangle: error
+  no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }]
   no-unmodified-loop-condition: error
   no-unneeded-ternary: error
   no-unreachable-loop: error
