@@ -24,7 +24,7 @@ function generateArrNumbers(step, num) {
   const progressionStep = getProgressionStep(step);
   const firstNumber = generateNumber(num);
   arr.push(firstNumber);
-  for (let i = 1; i < arrLength; i++) {
+  for (let i = 1; i < arrLength; i += 1) {
     arr[i] = arr[i - 1] + progressionStep;
   }
   variables.splicedNumber = Number(arr.splice(getHideIndex(arrLength), 1, '..').join());
@@ -32,7 +32,7 @@ function generateArrNumbers(step, num) {
 }
 
 function gamerGuess() {
-  variables.guess = readlineSync.question(`Question: ${generateArrNumbers(variables.maxStep, variables.maxNumber)} `);
+variables.guess = readlineSync.question(`Question: ${generateArrNumbers(variables.maxStep, variables.maxNumber)} `);
 }
 
 function getGuessResult(guess) {

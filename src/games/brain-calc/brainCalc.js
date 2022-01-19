@@ -29,7 +29,13 @@ function gamerGuess() {
 }
 
 function getResult(num1, num2, sign) {
-  return sign === '+' ? sum(num1, num2) : sign === '-' ? subtract(num1, num2) : multiply(num1, num2);
+  if (sign === '+') {
+    return sum(num1, num2);
+  } else if (sign === '-') {
+    return subtract(num1, num2);
+  } else {
+    return multiply(num1, num2);
+  }
 }
 
 function getGuessResult(correctAnswer, guess) {
