@@ -1,11 +1,11 @@
 import readlineSync from 'readline-sync';
 import {
-  variables, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
+  varies, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
 } from '../gamesSettings.js';
 
 function generateSign(num) {
   const index = generateNumber(num);
-  return variables.signList[index];
+  return varies.signList[index];
 }
 
 function sum(num1, num2) {
@@ -25,7 +25,7 @@ function gameRules() {
 }
 
 function gamerGuess() {
-  variables.guess = readlineSync.question(`Question: ${variables.generatedNumber} ${variables.generatedSign} ${variables.generatedSecondNumber} `);
+  varies.guess = readlineSync.question(`Question: ${varies.generatedNumber} ${varies.generatedSign} ${varies.generatedSecondNumber} `);
 }
 
 function getResult(num1, num2, sign) {
@@ -43,15 +43,15 @@ function getGuessResult(correctAnswer, guess) {
 }
 
 function playGame() {
-  while (variables.roundsNumber > 0) {
-    variables.generatedNumber = generateNumber(variables.maxNumber);
-    variables.generatedSecondNumber = generateNumber(variables.maxNumber);
-    variables.generatedSign = generateSign(variables.signList.length - 1);
+  while (varies.roundsNumber > 0) {
+    varies.generatedNumber = generateNumber(varies.maxNumber);
+    varies.generatedSecondNumber = generateNumber(varies.maxNumber);
+    varies.generatedSign = generateSign(varies.signList.length - 1);
     gamerGuess();
     printAnswer();
-    variables.correctAnswer = getResult(variables.generatedNumber, variables.generatedSecondNumber, variables.generatedSign);
-    variables.result = getGuessResult(variables.correctAnswer, variables.guess);
-    if (!checkResult(variables.result)) {
+    varies.correctAnswer = getResult(varies.generatedNumber, varies.generatedSecondNumber, varies.generatedSign);
+    varies.result = getGuessResult(varies.correctAnswer, varies.guess);
+    if (!checkResult(varies.result)) {
       return false;
     }
   }
@@ -59,8 +59,8 @@ function playGame() {
 }
 
 export default function startGame(rounds = 3, maxNumber = 100) {
-  variables.roundsNumber = rounds;
-  variables.maxNumber = maxNumber;
+  varies.roundsNumber = rounds;
+  varies.maxNumber = maxNumber;
   greetGamer();
   gameRules();
   if (playGame()) {

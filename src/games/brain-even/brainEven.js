@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 import {
-  variables, greetGamer, generateNumber, getGuessResult, checkResult, congratulate, printAnswer,
+  varies, greetGamer, generateNumber, getGuessResult, checkResult, congratulate, printAnswer,
 } from '../gamesSettings.js';
 
 function gameRules() {
@@ -12,25 +12,25 @@ function isEven(num) {
 }
 
 function guessCheck(num) {
-  return isEven(num) ? variables.positiveAnswer : variables.negativeAnswer;
+  return isEven(num) ? varies.positiveAnswer : varies.negativeAnswer;
 }
 
 function gamerGuess() {
-  variables.guess = readlineSync.question(`Question: ${variables.generatedNumber} `);
+  varies.guess = readlineSync.question(`Question: ${varies.generatedNumber} `);
 }
 
 function getGuess(func) {
-  variables.generatedNumber = generateNumber(variables.maxNumber);
+  varies.generatedNumber = generateNumber(varies.maxNumber);
   gamerGuess();
   printAnswer();
-  variables.result = getGuessResult(func(variables.generatedNumber), variables.guess);
-  variables.correctAnswer = guessCheck(variables.generatedNumber);
+  varies.result = getGuessResult(func(varies.generatedNumber), varies.guess);
+  varies.correctAnswer = guessCheck(varies.generatedNumber);
 }
 
 export function playGame() {
-  while (variables.roundsNumber > 0) {
+  while (varies.roundsNumber > 0) {
     getGuess(isEven);
-    if (!checkResult(variables.result)) {
+    if (!checkResult(varies.result)) {
       return false;
     }
   }
@@ -38,8 +38,8 @@ export function playGame() {
 }
 
 export default function startGame(rounds = 3, maxNumber = 100) {
-  variables.roundsNumber = rounds;
-  variables.maxNumber = maxNumber;
+  varies.roundsNumber = rounds;
+  varies.maxNumber = maxNumber;
   greetGamer();
   gameRules();
   if (playGame()) {

@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 import {
-  variables, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
+  varies, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
 } from '../gamesSettings.js';
 
 function gameRules() {
@@ -8,7 +8,7 @@ function gameRules() {
 }
 
 function gamerGuess() {
-  variables.guess = readlineSync.question(`Question: ${variables.generatedNumber} ${variables.generatedSecondNumber} `);
+  varies.guess = readlineSync.question(`Question: ${varies.generatedNumber} ${varies.generatedSecondNumber} `);
 }
 
 function NOD(x, y) {
@@ -22,14 +22,14 @@ function getGuessResult(correctAnswer, guess) {
 }
 
 function playGame() {
-  while (variables.roundsNumber > 0) {
-    variables.generatedNumber = generateNumber(variables.maxNumber);
-    variables.generatedSecondNumber = generateNumber(variables.maxNumber);
+  while (varies.roundsNumber > 0) {
+    varies.generatedNumber = generateNumber(varies.maxNumber);
+    varies.generatedSecondNumber = generateNumber(varies.maxNumber);
     gamerGuess();
     printAnswer();
-    variables.correctAnswer = NOD(variables.generatedNumber, variables.generatedSecondNumber);
-    variables.result = getGuessResult(variables.correctAnswer, variables.guess);
-    if (!checkResult(variables.result)) {
+    varies.correctAnswer = NOD(varies.generatedNumber, varies.generatedSecondNumber);
+    varies.result = getGuessResult(varies.correctAnswer, varies.guess);
+    if (!checkResult(varies.result)) {
       return false;
     }
   }
@@ -37,8 +37,8 @@ function playGame() {
 }
 
 export default function startGame(rounds = 3, maxNumber = 100) {
-  variables.roundsNumber = rounds;
-  variables.maxNumber = maxNumber;
+  varies.roundsNumber = rounds;
+  varies.maxNumber = maxNumber;
   greetGamer();
   gameRules();
   if (playGame()) {

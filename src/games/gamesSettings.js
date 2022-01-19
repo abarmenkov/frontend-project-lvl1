@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-export const variables = {
+export const varies = {
   correctAnswer: '',
   gamerName: '',
   generatedArray: [],
@@ -21,12 +21,12 @@ export const variables = {
 
 export function greetGamer() {
   console.log('Welcome to the Brain Games!');
-  variables.gamerName = readlineSync.question('May I have your name? ');
-  console.log(`Hello,  ${variables.gamerName}!`);
+  varies.gamerName = readlineSync.question('May I have your name? ');
+  console.log(`Hello,  ${varies.gamerName}!`);
 }
 
 export function congratulate() {
-  console.log(`Congratulations, ${variables.gamerName}!`);
+  console.log(`Congratulations, ${varies.gamerName}!`);
 }
 
 export function printCorrect() {
@@ -34,15 +34,15 @@ export function printCorrect() {
 }
 
 export function printTryAgain() {
-  console.log(`Let's try again, ${variables.gamerName}!`);
+  console.log(`Let's try again, ${varies.gamerName}!`);
 }
 
 export function printWrongAnswer() {
-  console.log(`"${variables.guess}" is wrong answer :(. Correct answer was "${variables.correctAnswer}".`);
+  console.log(`"${varies.guess}" is wrong answer :(. Correct answer was "${varies.correctAnswer}".`);
 }
 
 export function printAnswer() {
-  console.log(`Your answer: ${variables.guess}`);
+  console.log(`Your answer: ${varies.guess}`);
 }
 
 export function generateNumber(num) {
@@ -50,13 +50,13 @@ export function generateNumber(num) {
 }
 
 export function getGuessResult(checkedNum, playerGuess) {
-  return (checkedNum && playerGuess === variables.positiveAnswer) || (!checkedNum && playerGuess === variables.negativeAnswer);
+  return (checkedNum && playerGuess === varies.positiveAnswer) || (!checkedNum && playerGuess === varies.negativeAnswer);
 }
 
 export function checkResult() {
-  if (variables.result) {
+  if (varies.result) {
     printCorrect();
-    variables.roundsNumber -= 1;
+    varies.roundsNumber -= 1;
   } else {
     printWrongAnswer();
     printTryAgain();
