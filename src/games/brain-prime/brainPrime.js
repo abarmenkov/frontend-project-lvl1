@@ -1,5 +1,5 @@
 import {
-  varies, generateNumber, guessCheck, playGame, congratulate
+  varies, generateNumber, guessCheck, playGame, congratulate,
 } from '../gamesSettings.js';
 
 varies.rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';

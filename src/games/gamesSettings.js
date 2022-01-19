@@ -64,6 +64,17 @@ export function getGuessResult(correctAnswer, playerGuess) {
   return correctAnswer == playerGuess;
 }
 
+export function getGuess() {
+  varies.generateRound();
+  gamerGuess();
+  printAnswer();
+  varies.result = getGuessResult(varies.correctAnswer, varies.guess);
+}
+
+export function guessCheck(param) {
+  return (param) ? varies.positiveAnswer : varies.negativeAnswer;
+}
+
 export function playGame() {
   greetGamer();
   gameRules();
@@ -80,25 +91,3 @@ export function playGame() {
   }
   return true;
 }
-
-export function getGuess() {
-  varies.generateRound();
-  gamerGuess();
-  printAnswer();
-  varies.result = getGuessResult(varies.correctAnswer, varies.guess);
-}
-
-export function guessCheck(param) {
-  return (param) ? varies.positiveAnswer : varies.negativeAnswer;
-}
-/*export function checkResult() {
-  if (varies.result) {
-    printCorrect();
-    varies.roundsNumber -= 1;
-  } else {
-    printWrongAnswer();
-    printTryAgain();
-    return false;
-  }
-  return true;
-}*/

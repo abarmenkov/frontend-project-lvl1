@@ -1,16 +1,8 @@
 import {
-  varies, generateNumber, playGame, congratulate
+  varies, generateNumber, playGame, congratulate,
 } from '../gamesSettings.js';
 
 varies.rules = 'What is the result of the expression?';
-
-varies.generateRound = function () {
-  varies.generatedNumber = generateNumber(varies.maxNumber);
-  varies.generatedSecondNumber = generateNumber(varies.maxNumber);
-  varies.generatedSign = generateSign(varies.signList.length - 1);
-  varies.question = `${varies.generatedNumber} ${varies.generatedSign} ${varies.generatedSecondNumber}`;
-  getAnswer(varies.generatedNumber, varies.generatedSecondNumber, varies.generatedSign);
-};
 
 function generateSign(num) {
   const index = generateNumber(num);
@@ -38,6 +30,14 @@ function getAnswer(num1, num2, sign) {
     varies.correctAnswer = multiply(num1, num2);
   }
 }
+
+varies.generateRound = function () {
+  varies.generatedNumber = generateNumber(varies.maxNumber);
+  varies.generatedSecondNumber = generateNumber(varies.maxNumber);
+  varies.generatedSign = generateSign(varies.signList.length - 1);
+  varies.question = `${varies.generatedNumber} ${varies.generatedSign} ${varies.generatedSecondNumber}`;
+  getAnswer(varies.generatedNumber, varies.generatedSecondNumber, varies.generatedSign);
+};
 
 export default function startGame(rounds = 3, maxNumber = 100) {
   varies.roundsNumber = rounds;
