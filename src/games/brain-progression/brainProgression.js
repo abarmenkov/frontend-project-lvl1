@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 import {
-  varies, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
+  varies, greetGamer, generateNumber, gamerGuess, checkResult, congratulate, printAnswer,
 } from '../gamesSettings.js';
 
 function gameRules() {
@@ -31,9 +31,9 @@ function generateArr(step, num) {
   return arr.join(' ');
 }
 
-function gamerGuess() {
+/*function gamerGuess() {
   varies.guess = readlineSync.question(`Question: ${generateArr(varies.maxStep, varies.maxNumber)} `);
-}
+}*/
 
 function getGuessResult(guess) {
   return varies.splicedNumber === Number(guess);
@@ -41,6 +41,7 @@ function getGuessResult(guess) {
 
 function playGame() {
   while (varies.roundsNumber > 0) {
+    varies.question = generateArr(varies.maxStep, varies.maxNumber);
     gamerGuess();
     printAnswer();
     varies.result = getGuessResult(varies.guess);

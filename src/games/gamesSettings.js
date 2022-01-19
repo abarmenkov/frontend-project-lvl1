@@ -17,12 +17,17 @@ export const varies = {
     '-',
     '*'],
   splicedNumber: '',
+  question: '',
 };
 
 export function greetGamer() {
   console.log('Welcome to the Brain Games!');
   varies.gamerName = readlineSync.question('May I have your name? ');
   console.log(`Hello,  ${varies.gamerName}!`);
+}
+
+export function gamerGuess() {
+  varies.guess = readlineSync.question(`Question: ${varies.question} `);
 }
 
 export function congratulate() {

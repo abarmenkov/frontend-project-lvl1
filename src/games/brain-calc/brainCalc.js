@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 import {
-  varies, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
+  varies, gamerGuess, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
 } from '../gamesSettings.js';
 
 function generateSign(num) {
@@ -24,10 +24,6 @@ function gameRules() {
   console.log('What is the result of the expression?');
 }
 
-function gamerGuess() {
-  varies.guess = readlineSync.question(`Question: ${varies.generatedNumber} ${varies.generatedSign} ${varies.generatedSecondNumber} `);
-}
-
 function getResult(num1, num2, sign) {
   if (sign === '+') {
     return sum(num1, num2);
@@ -47,6 +43,7 @@ function playGame() {
     varies.generatedNumber = generateNumber(varies.maxNumber);
     varies.generatedSecondNumber = generateNumber(varies.maxNumber);
     varies.generatedSign = generateSign(varies.signList.length - 1);
+    varies.question = `${varies.generatedNumber} ${varies.generatedSign} ${varies.generatedSecondNumber}`;
     gamerGuess();
     printAnswer();
     varies.correctAnswer = getResult(varies.generatedNumber, varies.generatedSecondNumber, varies.generatedSign);

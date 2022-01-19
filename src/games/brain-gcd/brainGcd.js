@@ -1,14 +1,10 @@
 import readlineSync from 'readline-sync';
 import {
-  varies, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
+  varies, gamerGuess, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
 } from '../gamesSettings.js';
 
 function gameRules() {
   console.log('Find the greatest common divisor of given numbers.');
-}
-
-function gamerGuess() {
-  varies.guess = readlineSync.question(`Question: ${varies.generatedNumber} ${varies.generatedSecondNumber} `);
 }
 
 function NOD(x, y) {
@@ -25,6 +21,7 @@ function playGame() {
   while (varies.roundsNumber > 0) {
     varies.generatedNumber = generateNumber(varies.maxNumber);
     varies.generatedSecondNumber = generateNumber(varies.maxNumber);
+    varies.question = `${varies.generatedNumber} ${varies.generatedSecondNumber}`;
     gamerGuess();
     printAnswer();
     varies.correctAnswer = NOD(varies.generatedNumber, varies.generatedSecondNumber);

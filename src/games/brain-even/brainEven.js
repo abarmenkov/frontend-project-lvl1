@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 import {
-  varies, greetGamer, generateNumber, getGuessResult, checkResult, congratulate, printAnswer,
+  varies, gamerGuess, greetGamer, generateNumber, getGuessResult, checkResult, congratulate, printAnswer,
 } from '../gamesSettings.js';
 
 function gameRules() {
@@ -15,12 +15,9 @@ function guessCheck(num) {
   return isEven(num) ? varies.positiveAnswer : varies.negativeAnswer;
 }
 
-function gamerGuess() {
-  varies.guess = readlineSync.question(`Question: ${varies.generatedNumber} `);
-}
-
 function getGuess(func) {
   varies.generatedNumber = generateNumber(varies.maxNumber);
+  varies.question = varies.generatedNumber;
   gamerGuess();
   printAnswer();
   varies.result = getGuessResult(func(varies.generatedNumber), varies.guess);
