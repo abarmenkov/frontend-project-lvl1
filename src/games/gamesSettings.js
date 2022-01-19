@@ -21,37 +21,37 @@ export const varies = {
   question: '',
 };
 
-export function greetGamer() {
+function greetGamer() {
   console.log('Welcome to the Brain Games!');
   varies.gamerName = readlineSync.question('May I have your name? ');
   console.log(`Hello,  ${varies.gamerName}!`);
 }
 
-export function gameRules() {
+function gameRules() {
   console.log(varies.rules);
 }
 
-export function gamerGuess() {
+function gamerGuess() {
   varies.guess = readlineSync.question(`Question: ${varies.question} `);
 }
 
-export function congratulate() {
+function congratulate() {
   console.log(`Congratulations, ${varies.gamerName}!`);
 }
 
-export function printCorrect() {
+function printCorrect() {
   console.log('Correct!');
 }
 
-export function printTryAgain() {
+function printTryAgain() {
   console.log(`Let's try again, ${varies.gamerName}!`);
 }
 
-export function printWrongAnswer() {
+function printWrongAnswer() {
   console.log(`"${varies.guess}" is wrong answer :(. Correct answer was "${varies.correctAnswer}".`);
 }
 
-export function printAnswer() {
+function printAnswer() {
   console.log(`Your answer: ${varies.guess}`);
 }
 
@@ -59,11 +59,11 @@ export function generateNumber(num) {
   return Math.round(Math.random() * num);
 }
 
-export function checkResult(correctAnswer, playerGuess) {
+function checkResult(correctAnswer, playerGuess) {
   return String(correctAnswer) === String(playerGuess);
 }
 
-export function getGuess() {
+function getGuess() {
   varies.generateRound();
   gamerGuess();
   printAnswer();
@@ -74,7 +74,7 @@ export function getAnswer(param) {
   return (param) ? varies.positiveAnswer : varies.negativeAnswer;
 }
 
-export function playGame() {
+function playGame() {
   greetGamer();
   gameRules();
   while (varies.roundsNumber > 0) {
