@@ -17,7 +17,7 @@ export const variables = {
     '-',
     '*'],
   splicedNumber: '',
-}
+};
 
 export function greetGamer() {
   console.log('Welcome to the Brain Games!');
@@ -32,7 +32,7 @@ export function congratulate() {
 export function printCorrect() {
   console.log('Correct!');
 }
-  
+ 
 export function printTryAgain() {
   console.log(`Let's try again, ${variables.gamerName}!`);
 }
@@ -56,7 +56,7 @@ export function getGuessResult(checkedNum, playerGuess) {
 export function checkResult() {
   if (variables.result) {
     printCorrect();
-    variables.roundsNumber--;
+    variables.roundsNumber -= 1;
   } else {
     printWrongAnswer();
     printTryAgain();
