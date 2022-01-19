@@ -1,11 +1,9 @@
 import readlineSync from 'readline-sync';
 import {
-  varies, gamerGuess, greetGamer, generateNumber, getGuessResult, checkResult, congratulate, printAnswer,
+  varies, gamerGuess, gameRules, greetGamer, generateNumber, getGuessResult, checkResult, congratulate, printAnswer,
 } from '../gamesSettings.js';
 
-function gameRules() {
-  console.log('Answer yes if the number is even, otherwise answer no.');
-}
+varies.rules = 'Answer yes if the number is even, otherwise answer no.';
 
 function isEven(num) {
   return num % 2 === 0;

@@ -1,11 +1,9 @@
 import readlineSync from 'readline-sync';
 import {
-  varies, gamerGuess, greetGamer, generateNumber, getGuessResult, checkResult, congratulate, printAnswer,
+  varies, gamerGuess, gameRules, greetGamer, generateNumber, getGuessResult, checkResult, congratulate, printAnswer,
 } from '../gamesSettings.js';
 
-function gameRules() {
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-}
+varies.rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 function isPrime(num) {
   for (let i = 2; i < num; i += 1) {

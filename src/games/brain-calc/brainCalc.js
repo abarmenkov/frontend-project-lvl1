@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 import {
-  varies, gamerGuess, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
+  varies, gamerGuess, gameRules, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
 } from '../gamesSettings.js';
 
 function generateSign(num) {
@@ -20,9 +20,8 @@ function subtract(num1, num2) {
   return num1 - num2;
 }
 
-function gameRules() {
-  console.log('What is the result of the expression?');
-}
+varies.rules = 'What is the result of the expression?';
+
 
 function getResult(num1, num2, sign) {
   if (sign === '+') {

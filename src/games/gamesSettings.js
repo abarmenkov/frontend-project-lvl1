@@ -13,6 +13,7 @@ export const varies = {
   negativeAnswer: 'no',
   positiveAnswer: 'yes',
   result: '',
+  rules: '',
   signList: ['+',
     '-',
     '*'],
@@ -24,6 +25,10 @@ export function greetGamer() {
   console.log('Welcome to the Brain Games!');
   varies.gamerName = readlineSync.question('May I have your name? ');
   console.log(`Hello,  ${varies.gamerName}!`);
+}
+
+export function gameRules() {
+  console.log(varies.rules);
 }
 
 export function gamerGuess() {

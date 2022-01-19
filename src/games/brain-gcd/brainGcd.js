@@ -1,11 +1,9 @@
 import readlineSync from 'readline-sync';
 import {
-  varies, gamerGuess, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
+  varies, gamerGuess, gameRules, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
 } from '../gamesSettings.js';
 
-function gameRules() {
-  console.log('Find the greatest common divisor of given numbers.');
-}
+varies.rules = 'Find the greatest common divisor of given numbers.';
 
 function NOD(x, y) {
   if (y > x) return NOD(y, x);
