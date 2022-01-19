@@ -90,4 +90,5 @@ export function playGame() {
     }
   }
   congratulate();
+  return true;
 }
