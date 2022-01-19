@@ -92,3 +92,9 @@ export function playGame() {
   congratulate();
   return true;
 }
+
+export function startGame(rounds = 3, maxNumber = 100) {
+  varies.roundsNumber = rounds;
+  varies.maxNumber = maxNumber;
+  playGame();
+}

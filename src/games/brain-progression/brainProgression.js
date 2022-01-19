@@ -1,5 +1,5 @@
 import {
-  varies, generateNumber, playGame,
+  varies, generateNumber, startGame,
 } from '../gamesSettings.js';
 
 varies.rules = 'What number is missing in the progression?';
@@ -32,8 +32,4 @@ varies.generateRound = function () {
   varies.question = generateArr(varies.maxStep, varies.maxNumber);
 };
 
-export default function startGame(rounds = 3, maxNumber = 10) {
-  varies.roundsNumber = rounds;
-  varies.maxNumber = maxNumber;
-  playGame();
-}
+export default startGame

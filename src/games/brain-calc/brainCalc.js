@@ -1,5 +1,5 @@
 import {
-  varies, generateNumber, playGame,
+  varies, generateNumber, startGame,
 } from '../gamesSettings.js';
 
 varies.rules = 'What is the result of the expression?';
@@ -39,8 +39,4 @@ varies.generateRound = function () {
   getAnswer(varies.generatedNumber, varies.generatedSecondNumber, varies.generatedSign);
 };
 
-export default function startGame(rounds = 3, maxNumber = 100) {
-  varies.roundsNumber = rounds;
-  varies.maxNumber = maxNumber;
-  playGame();
-}
+export default startGame

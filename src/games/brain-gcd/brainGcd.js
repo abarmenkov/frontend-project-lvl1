@@ -1,5 +1,5 @@
 import {
-  varies, generateNumber, playGame,
+  varies, generateNumber, startGame,
 } from '../gamesSettings.js';
 
 varies.rules = 'Find the greatest common divisor of given numbers.';
@@ -17,8 +17,4 @@ varies.generateRound = function () {
   varies.correctAnswer = NOD(varies.generatedNumber, varies.generatedSecondNumber);
 };
 
-export default function startGame(rounds = 3, maxNumber = 100) {
-  varies.roundsNumber = rounds;
-  varies.maxNumber = maxNumber;
-  playGame();
-}
+export default startGame

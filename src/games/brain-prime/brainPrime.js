@@ -1,5 +1,5 @@
 import {
-  varies, generateNumber, getAnswer, playGame,
+  varies, generateNumber, getAnswer, startGame,
 } from '../gamesSettings.js';
 
 varies.rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -19,8 +19,4 @@ varies.generateRound = function () {
   varies.correctAnswer = getAnswer(isPrime(varies.generatedNumber));
 };
 
-export default function startGame(rounds = 3, maxNumber = 100) {
-  varies.roundsNumber = rounds;
-  varies.maxNumber = maxNumber;
-  playGame();
-}
+export default startGame

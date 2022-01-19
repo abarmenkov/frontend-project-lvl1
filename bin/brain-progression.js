@@ -5,4 +5,4 @@
 
 import startGame from '../src/games/brain-progression/brainProgression.js';
 
-startGame(3, 10);
+startGame(1, 10);
