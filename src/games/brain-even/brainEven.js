@@ -8,7 +8,7 @@ function isEven(num) {
   return num % 2 === 0;
 }
 
-varies.generateRound = function () {
+varies.generateRound = function() {
   varies.generatedNumber = generateNumber(varies.maxNumber);
   varies.question = varies.generatedNumber;
   varies.correctAnswer = getAnswer(isEven(varies.generatedNumber));

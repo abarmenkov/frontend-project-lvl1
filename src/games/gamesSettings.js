@@ -19,7 +19,6 @@ export const varies = {
     '*'],
   splicedNumber: '',
   question: '',
-  generateRound: '',
 };
 
 export function greetGamer() {

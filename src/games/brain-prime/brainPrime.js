@@ -13,7 +13,7 @@ function isPrime(num) {
   return num > 1;
 }
 
-varies.generateRound = function () {
+varies.generateRound = function() {
   varies.generatedNumber = generateNumber(varies.maxNumber);
   varies.question = varies.generatedNumber;
   varies.correctAnswer = getAnswer(isPrime(varies.generatedNumber));
