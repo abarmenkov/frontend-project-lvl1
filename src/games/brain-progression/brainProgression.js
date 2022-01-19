@@ -35,7 +35,5 @@ varies.generateRound = function () {
 export default function startGame(rounds = 3, maxNumber = 10) {
   varies.roundsNumber = rounds;
   varies.maxNumber = maxNumber;
-  if (playGame()) {
-    congratulate();
-  }
+  playGame();
 }

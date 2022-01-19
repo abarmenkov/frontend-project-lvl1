@@ -60,7 +60,7 @@ export function generateNumber(num) {
   return Math.round(Math.random() * num);
 }
 
-export function getGuessResult(correctAnswer, playerGuess) {
+export function checkResult(correctAnswer, playerGuess) {
   return correctAnswer == playerGuess;
 }
 
@@ -68,7 +68,7 @@ export function getGuess() {
   varies.generateRound();
   gamerGuess();
   printAnswer();
-  varies.result = getGuessResult(varies.correctAnswer, varies.guess);
+  varies.result = checkResult(varies.correctAnswer, varies.guess);
 }
 
 export function guessCheck(param) {
@@ -89,5 +89,5 @@ export function playGame() {
       return false;
     }
   }
-  return true;
+  congratulate();
 }
