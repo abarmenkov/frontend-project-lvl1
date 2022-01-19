@@ -39,4 +39,4 @@ varies.generateRound = function () {
   getAnswer(varies.generatedNumber, varies.generatedSecondNumber, varies.generatedSign);
 };
 
-export default startGame
+export default startGame;

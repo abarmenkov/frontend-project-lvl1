@@ -32,4 +32,4 @@ varies.generateRound = function () {
   varies.question = generateArr(varies.maxStep, varies.maxNumber);
 };
 
-export default startGame
+export default startGame;

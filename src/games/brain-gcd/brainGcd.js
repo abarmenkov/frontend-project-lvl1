@@ -17,4 +17,4 @@ varies.generateRound = function () {
   varies.correctAnswer = NOD(varies.generatedNumber, varies.generatedSecondNumber);
 };
 
-export default startGame
+export default startGame;

@@ -14,4 +14,4 @@ varies.generateRound = function () {
   varies.correctAnswer = getAnswer(isEven(varies.generatedNumber));
 };
 
-export default startGame
+export default startGame;

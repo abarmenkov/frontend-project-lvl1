@@ -19,4 +19,4 @@ varies.generateRound = function () {
   varies.correctAnswer = getAnswer(isPrime(varies.generatedNumber));
 };
 
-export default startGame
+export default startGame;
