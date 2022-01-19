@@ -19,6 +19,7 @@ export const varies = {
     '*'],
   splicedNumber: '',
   question: '',
+  generateRound: '',
 };
 
 export function greetGamer() {
@@ -59,11 +60,38 @@ export function generateNumber(num) {
   return Math.round(Math.random() * num);
 }
 
-export function getGuessResult(checkedNum, playerGuess) {
-  return (checkedNum && playerGuess === varies.positiveAnswer) || (!checkedNum && playerGuess === varies.negativeAnswer);
+export function getGuessResult(correctAnswer, playerGuess) {
+  return correctAnswer == playerGuess;
 }
 
-export function checkResult() {
+export function playGame() {
+  greetGamer();
+  gameRules();
+  while (varies.roundsNumber > 0) {
+    getGuess();
+    if (varies.result) {
+      printCorrect();
+      varies.roundsNumber -= 1;
+    } else {
+      printWrongAnswer();
+      printTryAgain();
+      return false;
+    }
+  }
+  return true;
+}
+
+export function getGuess() {
+  varies.generateRound();
+  gamerGuess();
+  printAnswer();
+  varies.result = getGuessResult(varies.correctAnswer, varies.guess);
+}
+
+export function guessCheck(param) {
+  return (param) ? varies.positiveAnswer : varies.negativeAnswer;
+}
+/*export function checkResult() {
   if (varies.result) {
     printCorrect();
     varies.roundsNumber -= 1;
@@ -73,4 +101,4 @@ export function checkResult() {
     return false;
   }
   return true;
-}
+}*/
