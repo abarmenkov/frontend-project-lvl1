@@ -9,66 +9,69 @@
 /* eslint-disable class-methods-use-this */
 // eslint-disable-next-line import/extensions
 import readlineSync from 'readline-sync';
-import GamesSettings from "../gamesSettings.js";
-import startGame from '../index.js';
+import {
+  variables, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
+} from '../gamesSettings.js';
 
-export class BrainCalc extends GamesSettings {
-
-  generateSign(num) {
-    const index = this.generateNumber(num);
-    return this.signList[index];
-  }
-
-  sum(num1, num2) {
-    return num1 + num2;
-  }
-
-  multiply(num1, num2) {
-    return num1 * num2;
-  }
-
-  subtract(num1, num2) {
-    return num1 - num2;
-  }
-
-  gameRules() {
-    console.log('What is the result of the expression?');
-  }
-
-  gamerGuess() {
-    this.guess = readlineSync.question(`Question: ${this.generatedNumber} ${this.generatedSign} ${this.generatedSecondNumber} `);
-  }
-
-  getResult(num1, num2, sign) {
-    // eslint-disable-next-line no-nested-ternary
-    return sign === '+' ? this.sum(num1, num2) : sign === '-' ? this.subtract(num1, num2) : this.multiply(num1, num2);
-  }
-
-  // eslint-disable-next-line max-params
-  getGuessResult(correctAnswer, guess) {
-    // eslint-disable-next-line max-len
-    return correctAnswer === Number(guess);
-  }
-
-  playGame() {
-    while (this.roundsNumber > 0) {
-      this.generatedNumber = this.generateNumber(this.maxNumber);
-      this.generatedSecondNumber = this.generateNumber(this.maxNumber);
-      this.generatedSign = this.generateSign(this.signList.length - 1);
-      this.gamerGuess();
-      this.printAnswer();
-      // eslint-disable-next-line max-len
-      this.correctAnswer = this.getResult(this.generatedNumber, this.generatedSecondNumber, this.generatedSign);
-      this.result = this.getGuessResult(this.correctAnswer, this.guess);
-      if (!this.checkResult(this.result)) {
-        return false;
-      }
-    }
-    return true;
-  }
+function generateSign(num) {
+  const index = generateNumber(num);
+  return variables.signList[index];
 }
 
-export default function init(roundsNumber, num) {
-  const game = new BrainCalc(roundsNumber, num);
-  startGame(game);
+function sum(num1, num2) {
+  return num1 + num2;
+}
+
+function multiply(num1, num2) {
+  return num1 * num2;
+}
+
+function subtract(num1, num2) {
+  return num1 - num2;
+}
+
+function gameRules() {
+  console.log('What is the result of the expression?');
+}
+
+function gamerGuess() {
+  variables.guess = readlineSync.question(`Question: ${variables.generatedNumber} ${variables.generatedSign} ${variables.generatedSecondNumber} `);
+}
+
+function getResult(num1, num2, sign) {
+  // eslint-disable-next-line no-nested-ternary
+  return sign === '+' ? sum(num1, num2) : sign === '-' ? subtract(num1, num2) : multiply(num1, num2);
+}
+
+// eslint-disable-next-line max-params
+function getGuessResult(correctAnswer, guess) {
+  // eslint-disable-next-line max-len
+  return correctAnswer === Number(guess);
+}
+
+function playGame() {
+  while (variables.roundsNumber > 0) {
+    variables.generatedNumber = generateNumber(variables.maxNumber);
+    variables.generatedSecondNumber = generateNumber(variables.maxNumber);
+    variables.generatedSign = generateSign(variables.signList.length - 1);
+    gamerGuess();
+    printAnswer();
+    // eslint-disable-next-line max-len
+    variables.correctAnswer = getResult(variables.generatedNumber, variables.generatedSecondNumber, variables.generatedSign);
+    variables.result = getGuessResult(variables.correctAnswer, variables.guess);
+    if (!checkResult(variables.result)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+export default function startGame(rounds = 3, maxNumber = 100) {
+  variables.roundsNumber = rounds;
+  variables.maxNumber = maxNumber;
+  greetGamer();
+  gameRules();
+  if (playGame()) {
+    congratulate();
+  }
 }

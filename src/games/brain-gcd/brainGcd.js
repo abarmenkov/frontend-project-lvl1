@@ -8,49 +8,52 @@
 /* eslint-disable class-methods-use-this */
 // eslint-disable-next-line import/extensions
 import readlineSync from 'readline-sync';
-import GamesSettings from "../gamesSettings.js";
-import startGame from '../index.js';
+import {
+  variables, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
+} from '../gamesSettings.js';
 
-export class BrainGcd extends GamesSettings {
-
-  gameRules() {
-    console.log('Find the greatest common divisor of given numbers.');
-  }
-
-  gamerGuess() {
-    this.guess = readlineSync.question(`Question: ${this.generatedNumber} ${this.generatedSecondNumber} `);
-  }
-
-  // eslint-disable-next-line id-length
-  NOD(x, y) {
-    if (y > x) return this.NOD(y, x);
-    if (!y) return x;
-    return this.NOD(y, x % y);
-  }
-
-  // eslint-disable-next-line max-params
-  getGuessResult(correctAnswer, guess) {
-    return correctAnswer === Number(guess);
-  }
-
-  playGame() {
-    while (this.roundsNumber > 0) {
-      this.generatedNumber = this.generateNumber(this.maxNumber);
-      this.generatedSecondNumber = this.generateNumber(this.maxNumber);
-      this.gamerGuess();
-      this.printAnswer();
-      // eslint-disable-next-line max-len
-      this.correctAnswer = this.NOD(this.generatedNumber, this.generatedSecondNumber);
-      this.result = this.getGuessResult(this.correctAnswer, this.guess);
-      if (!this.checkResult(this.result)) {
-        return false;
-      }
-    }
-    return true;
-  }
+function gameRules() {
+  console.log('Find the greatest common divisor of given numbers.');
 }
 
-export default function init(roundsNumber, num) {
-  const game = new BrainGcd(roundsNumber, num);
-  startGame(game);
+function gamerGuess() {
+  variables.guess = readlineSync.question(`Question: ${variables.generatedNumber} ${variables.generatedSecondNumber} `);
+}
+
+// eslint-disable-next-line id-length
+function NOD(x, y) {
+  if (y > x) return NOD(y, x);
+  if (!y) return x;
+  return NOD(y, x % y);
+}
+
+// eslint-disable-next-line max-params
+function getGuessResult(correctAnswer, guess) {
+  return correctAnswer === Number(guess);
+}
+
+function playGame() {
+  while (variables.roundsNumber > 0) {
+    variables.generatedNumber = generateNumber(variables.maxNumber);
+    variables.generatedSecondNumber = generateNumber(variables.maxNumber);
+    gamerGuess();
+    printAnswer();
+    // eslint-disable-next-line max-len
+    variables.correctAnswer = NOD(variables.generatedNumber, variables.generatedSecondNumber);
+    variables.result = getGuessResult(variables.correctAnswer, variables.guess);
+    if (!checkResult(variables.result)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+export default function startGame(rounds = 3, maxNumber = 100) {
+  variables.roundsNumber = rounds;
+  variables.maxNumber = maxNumber;
+  greetGamer();
+  gameRules();
+  if (playGame()) {
+    congratulate();
+  }
 }

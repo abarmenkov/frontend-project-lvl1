@@ -7,45 +7,56 @@
 /* eslint-disable class-methods-use-this */
 // eslint-disable-next-line import/extensions
 import readlineSync from 'readline-sync';
-import GamesSettings from "../gamesSettings.js";
-import startGame from "../index.js";
+import {
+  variables, greetGamer, generateNumber, getGuessResult, checkResult, congratulate, printAnswer,
+} from '../gamesSettings.js';
 
-export class BrainPrime extends GamesSettings {
-
-  gameRules() {
-    console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  }
-
-  isPrime(num) {
-    // eslint-disable-next-line id-length
-    for (let i = 2; i < num; i++) {
-      if (num % i === 0) {
-        return false;
-      }
-    }
-    return num > 1;
-  }
-
-  guessCheck(num) {
-    return this.isPrime(num) ? this.positiveAnswer : this.negativeAnswer;
-  }
-
-  gamerGuess() {
-    this.guess = readlineSync.question(`Question: ${this.generatedNumber} `);
-  }
-
-  playGame() {
-    while (this.roundsNumber > 0) {
-      this.getGuess(this.isPrime);
-      if (!this.checkResult(this.result)) {
-        return false;
-      }
-    }
-    return true;
-  }
+function gameRules() {
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 }
 
-export default function init(roundsNumber, maxNumber) {
-  const game = new BrainPrime(roundsNumber, maxNumber);
-  startGame(game);
+function isPrime(num) {
+  // eslint-disable-next-line id-length
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return num > 1;
+}
+
+function guessCheck(num) {
+  return isPrime(num) ? variables.positiveAnswer : variables.negativeAnswer;
+}
+
+function gamerGuess() {
+  variables.guess = readlineSync.question(`Question: ${variables.generatedNumber} `);
+}
+
+function getGuess(func) {
+  variables.generatedNumber = generateNumber(variables.maxNumber);
+  gamerGuess();
+  printAnswer();
+  variables.result = getGuessResult(func(variables.generatedNumber), variables.guess);
+  variables.correctAnswer = guessCheck(variables.generatedNumber);
+}
+
+function playGame() {
+  while (variables.roundsNumber > 0) {
+    getGuess(isPrime);
+    if (!checkResult(variables.result)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+export default function startGame(rounds = 3, maxNumber = 100) {
+  variables.roundsNumber = rounds;
+  variables.maxNumber = maxNumber;
+  greetGamer();
+  gameRules();
+  if (playGame()) {
+    congratulate();
+  }
 }

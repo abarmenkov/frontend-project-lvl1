@@ -11,77 +11,69 @@
 /* eslint-disable class-methods-use-this */
 // eslint-disable-next-line import/extensions
 import readlineSync from 'readline-sync';
-import GamesSettings from "../gamesSettings.js";
-import startGame from '../index.js';
+import {
+  variables, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
+} from '../gamesSettings.js';
 
-export class BrainProgression extends GamesSettings {
-  constructor (roundsNumber, maxNumber = 30, maxStep = 10, length = 6) {
-    super(roundsNumber);
-    this.maxNumber = maxNumber;
-    this.length = length;
-    this.maxStep = maxStep;
-  }
-
-  generatedArray
-
-  splicedNumber
-
-  gameRules() {
-    console.log('What number is missing in the progression?');
-  }
-
-  // num -диапазон шага до какого числа, +1 -чтобы шаг не был равен 0
-  getProgressionStep(num) {
-    return this.generateNumber(num) + 1;
-  }
-
-  generateArrNumbers(step, num) {
-    const arr = [];
-    let arrLength = this.generateNumber(num);
-    if (arrLength < this.length) {
-      arrLength = this.length;
-    }
-    const progressionStep = this.getProgressionStep(step);
-    const firstNumber = this.generateNumber(num);
-    arr.push(firstNumber);
-    // eslint-disable-next-line no-plusplus
-    for (let i = 1; i < arrLength; i++) {
-      arr[i] = arr[i - 1] + progressionStep;
-    }
-    this.splicedNumber = Number(arr.splice(this.getHideIndex(arrLength), 1, '..').join());
-    return arr.join(' ');
-  }
-
-  getHideIndex(length) {
-    return this.generateNumber(length - 1);
-  }
-
-  gamerGuess() {
-    this.guess = readlineSync.question(`Question: ${this.generateArrNumbers(this.maxStep, this.maxNumber)} `);
-  }
-
-  // eslint-disable-next-line max-params
-  getGuessResult(guess) {
-
-    return this.splicedNumber === Number(guess);
-  }
-
-  playGame() {
-    while (this.roundsNumber > 0) {
-      this.gamerGuess();
-      this.printAnswer();
-      // eslint-disable-next-line max-len
-      this.result = this.getGuessResult(this.guess);
-      this.correctAnswer = this.splicedNumber;
-      if (!this.checkResult(this.result)) {
-        return false;
-      }
-    }
-    return true;
-  }
+function gameRules() {
+  console.log('What number is missing in the progression?');
 }
 
-export default function init(roundsNumber, num) {
-  const game = new BrainProgression(roundsNumber, num);
-  startGame(game);
+// num -диапазон шага до какого числа, +1 -чтобы шаг не был равен 0
+function getProgressionStep(num) {
+  return generateNumber(num) + 1;
+}
+
+function getHideIndex(length) {
+  return generateNumber(length - 1);
+}
+
+function generateArrNumbers(step, num) {
+  const arr = [];
+  let arrLength = generateNumber(num);
+  if (arrLength < variables.length) {
+    arrLength = variables.length;
+  }
+  const progressionStep = getProgressionStep(step);
+  const firstNumber = generateNumber(num);
+  arr.push(firstNumber);
+  // eslint-disable-next-line no-plusplus
+  for (let i = 1; i < arrLength; i++) {
+    arr[i] = arr[i - 1] + progressionStep;
+  }
+  variables.splicedNumber = Number(arr.splice(getHideIndex(arrLength), 1, '..').join());
+  return arr.join(' ');
+}
+
+function gamerGuess() {
+  variables.guess = readlineSync.question(`Question: ${generateArrNumbers(variables.maxStep, variables.maxNumber)} `);
+}
+
+// eslint-disable-next-line max-params
+function getGuessResult(guess) {
+  return variables.splicedNumber === Number(guess);
+}
+
+function playGame() {
+  while (variables.roundsNumber > 0) {
+    gamerGuess();
+    printAnswer();
+    // eslint-disable-next-line max-len
+    variables.result = getGuessResult(variables.guess);
+    variables.correctAnswer = variables.splicedNumber;
+    if (!checkResult(variables.result)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+export default function startGame(rounds = 3, maxNumber = 10) {
+  variables.roundsNumber = rounds;
+  variables.maxNumber = maxNumber;
+  greetGamer();
+  gameRules();
+  if (playGame()) {
+    congratulate();
+  }
 }

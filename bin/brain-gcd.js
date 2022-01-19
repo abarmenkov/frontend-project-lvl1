@@ -1,8 +1,8 @@
 #!/usr/bin/env node
+/* eslint-disable no-magic-numbers */
 /* eslint-disable import/extensions */
 /* eslint-disable eol-last */
 
-import init from '../src/games/brain-gcd/brainGcd.js';
+import startGame from '../src/games/brain-gcd/brainGcd.js';
 
-// eslint-disable-next-line no-magic-numbers
-init(3, 100);
+startGame();

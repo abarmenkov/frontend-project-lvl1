@@ -1,3 +1,4 @@
+/* eslint-disable no-ternary */
 /* eslint-disable semi */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable class-methods-use-this */
@@ -5,86 +6,70 @@
 /* eslint-disable no-magic-numbers */
 import readlineSync from 'readline-sync';
 
-export default class GamesSettings {
-  // eslint-disable-next-line array-element-newline
-  constructor(roundsNumber = 3, maxNumber = 100, signList = ['+', '-', '*']) {
-    this.roundsNumber = roundsNumber;
-    this.maxNumber = maxNumber;
-    this.signList = signList;
-  }
+export const variables = {
+  correctAnswer: '',
+  gamerName: '',
+  generatedArray: [],
+  generatedNumber: '',
+  generatedSecondNumber: '',
+  generatedSign: '',
+  guess: '',
+  length: 6,
+  maxStep: 10,
+  negativeAnswer: 'no',
+  positiveAnswer: 'yes',
+  result: '',
+  signList: ['+',
+    '-',
+    '*'],
+  splicedNumber: '',
+}
 
-  gamerName
+export function greetGamer() {
+  console.log('Welcome to the Brain Games!');
+  variables.gamerName = readlineSync.question('May I have your name? ');
+  console.log(`Hello,  ${variables.gamerName}!`);
+}
 
-  correctAnswer
+export function congratulate() {
+  console.log(`Congratulations, ${variables.gamerName}!`);
+}
 
-  generatedNumber
-
-  generatedSecondNumber
-
-  generatedSign
-
-  guess
-
-  result
-
-  positiveAnswer = 'yes'
-
-  negativeAnswer = 'no'
-
-  greetGamer() {
-    console.log('Welcome to the Brain Games!');
-    this.gamerName = readlineSync.question('May I have your name? ');
-    console.log(`Hello,  ${this.gamerName}!`);
-  }
-
-  generateNumber(num) {
-    return Math.round(Math.random() * num);
-  }
-
-  getGuess(func) {
-    this.generatedNumber = this.generateNumber(this.maxNumber);
-    this.gamerGuess();
-    this.printAnswer();
-    this.result = this.getGuessResult(func(this.generatedNumber), this.guess);
-    this.correctAnswer = this.guessCheck(this.generatedNumber);
-  }
-
-  getGuessResult(checkedNum, guess) {
-    // eslint-disable-next-line max-len
-    return (checkedNum && guess === this.positiveAnswer) || (!checkedNum && guess === this.negativeAnswer);
-  }
+export function printCorrect() {
+  console.log('Correct!');
+}
   
-  checkResult() {
-    if (this.result) {
-      this.printCorrect();
-      // eslint-disable-next-line no-plusplus
-      this.roundsNumber--;
-    } else {
-      // eslint-disable-next-line no-useless-concat
-      this.printWrongAnswer();
-      this.printTryAgain();
-      return false;
-    }
-    return true;
-  }
+export function printTryAgain() {
+  console.log(`Let's try again, ${variables.gamerName}!`);
+}
 
-  congratulate() {
-    console.log(`Congratulations, ${this.gamerName}!`);
-  }
+export function printWrongAnswer() {
+  console.log(`"${variables.guess}" is wrong answer :(. Correct answer was "${variables.correctAnswer}".`);
+}
 
-  printCorrect() {
-    console.log('Correct!');
-  }
-  
-  printTryAgain() {
-    console.log(`Let's try again, ${this.gamerName}!`);
-  }
+export function printAnswer() {
+  console.log(`Your answer: ${variables.guess}`);
+}
 
-  printWrongAnswer() {
-    console.log(`"${this.guess}" is wrong answer :(. Correct answer was "${this.correctAnswer}".`);
-  }
+export function generateNumber(num) {
+  return Math.round(Math.random() * num);
+}
 
-  printAnswer() {
-    console.log(`Your answer: ${this.guess}`);
+export function getGuessResult(checkedNum, playerGuess) {
+  // eslint-disable-next-line max-len
+  return (checkedNum && playerGuess === variables.positiveAnswer) || (!checkedNum && playerGuess === variables.negativeAnswer);
+}
+
+export function checkResult() {
+  if (variables.result) {
+    printCorrect();
+    // eslint-disable-next-line no-plusplus
+    variables.roundsNumber--;
+  } else {
+    // eslint-disable-next-line no-useless-concat
+    printWrongAnswer();
+    printTryAgain();
+    return false;
   }
+  return true;
 }

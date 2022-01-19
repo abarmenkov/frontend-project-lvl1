@@ -2,6 +2,6 @@
 /* eslint-disable eol-last */
 /* eslint-disable import/extensions */
 
-import init from '../src/games/brain-prime/brainPrime.js';
+import startGame from '../src/games/brain-prime/brainPrime.js';
 
-init();
+startGame();
