@@ -28,7 +28,7 @@ function generateArr(step, num) {
   return arr.join(' ');
 }
 
-varies.generateRound = function() {
+varies.generateRound = function () {
   varies.question = generateArr(varies.maxStep, varies.maxNumber);
 };
 

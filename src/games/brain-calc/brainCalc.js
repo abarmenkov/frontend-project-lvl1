@@ -31,7 +31,7 @@ function getAnswer(num1, num2, sign) {
   }
 }
 
-varies.generateRound = function() {
+varies.generateRound = function () {
   varies.generatedNumber = generateNumber(varies.maxNumber);
   varies.generatedSecondNumber = generateNumber(varies.maxNumber);
   varies.generatedSign = generateSign(varies.signList.length - 1);

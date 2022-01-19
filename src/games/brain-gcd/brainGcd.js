@@ -10,7 +10,7 @@ function NOD(x, y) {
   return NOD(y, x % y);
 }
 
-varies.generateRound = function() {
+varies.generateRound = function () {
   varies.generatedNumber = generateNumber(varies.maxNumber);
   varies.generatedSecondNumber = generateNumber(varies.maxNumber);
   varies.question = `${varies.generatedNumber} ${varies.generatedSecondNumber}`;
