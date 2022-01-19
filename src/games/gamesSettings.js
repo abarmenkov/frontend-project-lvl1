@@ -32,7 +32,7 @@ export function congratulate() {
 export function printCorrect() {
   console.log('Correct!');
 }
- 
+
 export function printTryAgain() {
   console.log(`Let's try again, ${variables.gamerName}!`);
 }

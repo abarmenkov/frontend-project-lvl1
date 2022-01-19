@@ -32,7 +32,7 @@ function generateArrNumbers(step, num) {
 }
 
 function gamerGuess() {
-variables.guess = readlineSync.question(`Question: ${generateArrNumbers(variables.maxStep, variables.maxNumber)} `);
+  variables.guess = readlineSync.question(`Question: ${generateArrNumbers(variables.maxStep, variables.maxNumber)} `);
 }
 
 function getGuessResult(guess) {
