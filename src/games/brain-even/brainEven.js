@@ -1,4 +1,3 @@
-
 import readlineSync from 'readline-sync';
 import {
   variables, greetGamer, generateNumber, getGuessResult, checkResult, congratulate, printAnswer,
