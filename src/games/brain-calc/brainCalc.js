@@ -1,13 +1,4 @@
-/* eslint-disable no-extra-semi */
-/* eslint-disable max-len */
-/* eslint-disable max-statements */
-/* eslint-disable sort-imports */
-/* eslint-disable import/extensions */
-/* eslint-disable no-ternary */
-/* eslint-disable no-magic-numbers */
-/* eslint-disable func-names */
-/* eslint-disable class-methods-use-this */
-// eslint-disable-next-line import/extensions
+
 import readlineSync from 'readline-sync';
 import {
   variables, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
@@ -39,13 +30,10 @@ function gamerGuess() {
 }
 
 function getResult(num1, num2, sign) {
-  // eslint-disable-next-line no-nested-ternary
   return sign === '+' ? sum(num1, num2) : sign === '-' ? subtract(num1, num2) : multiply(num1, num2);
 }
 
-// eslint-disable-next-line max-params
 function getGuessResult(correctAnswer, guess) {
-  // eslint-disable-next-line max-len
   return correctAnswer === Number(guess);
 }
 
@@ -56,7 +44,6 @@ function playGame() {
     variables.generatedSign = generateSign(variables.signList.length - 1);
     gamerGuess();
     printAnswer();
-    // eslint-disable-next-line max-len
     variables.correctAnswer = getResult(variables.generatedNumber, variables.generatedSecondNumber, variables.generatedSign);
     variables.result = getGuessResult(variables.correctAnswer, variables.guess);
     if (!checkResult(variables.result)) {

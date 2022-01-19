@@ -1,10 +1,4 @@
-/* eslint-disable sort-imports */
-/* eslint-disable import/extensions */
-/* eslint-disable no-ternary */
-/* eslint-disable no-magic-numbers */
-/* eslint-disable func-names */
-/* eslint-disable class-methods-use-this */
-// eslint-disable-next-line import/extensions
+
 import readlineSync from 'readline-sync';
 import {
   variables, greetGamer, generateNumber, getGuessResult, checkResult, congratulate, printAnswer,

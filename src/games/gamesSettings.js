@@ -1,9 +1,4 @@
-/* eslint-disable no-ternary */
-/* eslint-disable semi */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable class-methods-use-this */
-/* eslint-disable func-names */
-/* eslint-disable no-magic-numbers */
+
 import readlineSync from 'readline-sync';
 
 export const variables = {
@@ -56,17 +51,14 @@ export function generateNumber(num) {
 }
 
 export function getGuessResult(checkedNum, playerGuess) {
-  // eslint-disable-next-line max-len
   return (checkedNum && playerGuess === variables.positiveAnswer) || (!checkedNum && playerGuess === variables.negativeAnswer);
 }
 
 export function checkResult() {
   if (variables.result) {
     printCorrect();
-    // eslint-disable-next-line no-plusplus
     variables.roundsNumber--;
   } else {
-    // eslint-disable-next-line no-useless-concat
     printWrongAnswer();
     printTryAgain();
     return false;

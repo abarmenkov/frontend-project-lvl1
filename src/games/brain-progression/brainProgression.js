@@ -1,15 +1,4 @@
-/* eslint-disable semi */
-/* eslint-disable max-params */
-/* eslint-disable id-length */
-/* eslint-disable max-len */
-/* eslint-disable max-statements */
-/* eslint-disable sort-imports */
-/* eslint-disable import/extensions */
-/* eslint-disable no-ternary */
-/* eslint-disable no-magic-numbers */
-/* eslint-disable func-names */
-/* eslint-disable class-methods-use-this */
-// eslint-disable-next-line import/extensions
+
 import readlineSync from 'readline-sync';
 import {
   variables, greetGamer, generateNumber, checkResult, congratulate, printAnswer,
@@ -19,7 +8,6 @@ function gameRules() {
   console.log('What number is missing in the progression?');
 }
 
-// num -диапазон шага до какого числа, +1 -чтобы шаг не был равен 0
 function getProgressionStep(num) {
   return generateNumber(num) + 1;
 }
@@ -37,7 +25,6 @@ function generateArrNumbers(step, num) {
   const progressionStep = getProgressionStep(step);
   const firstNumber = generateNumber(num);
   arr.push(firstNumber);
-  // eslint-disable-next-line no-plusplus
   for (let i = 1; i < arrLength; i++) {
     arr[i] = arr[i - 1] + progressionStep;
   }
@@ -49,7 +36,6 @@ function gamerGuess() {
   variables.guess = readlineSync.question(`Question: ${generateArrNumbers(variables.maxStep, variables.maxNumber)} `);
 }
 
-// eslint-disable-next-line max-params
 function getGuessResult(guess) {
   return variables.splicedNumber === Number(guess);
 }
@@ -58,7 +44,6 @@ function playGame() {
   while (variables.roundsNumber > 0) {
     gamerGuess();
     printAnswer();
-    // eslint-disable-next-line max-len
     variables.result = getGuessResult(variables.guess);
     variables.correctAnswer = variables.splicedNumber;
     if (!checkResult(variables.result)) {
