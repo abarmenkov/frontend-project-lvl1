@@ -1,5 +1,5 @@
 import {
-  varies, generateNumber, playGame, congratulate,
+  varies, generateNumber, playGame,
 } from '../gamesSettings.js';
 
 varies.rules = 'What number is missing in the progression?';

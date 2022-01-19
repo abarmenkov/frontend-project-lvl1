@@ -71,7 +71,7 @@ export function getGuess() {
   varies.result = checkResult(varies.correctAnswer, varies.guess);
 }
 
-export function guessCheck(param) {
+export function getAnswer(param) {
   return (param) ? varies.positiveAnswer : varies.negativeAnswer;
 }
 

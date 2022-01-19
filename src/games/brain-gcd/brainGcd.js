@@ -1,5 +1,5 @@
 import {
-  varies, generateNumber, playGame, congratulate,
+  varies, generateNumber, playGame,
 } from '../gamesSettings.js';
 
 varies.rules = 'Find the greatest common divisor of given numbers.';
