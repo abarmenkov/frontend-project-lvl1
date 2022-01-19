@@ -60,7 +60,7 @@ export function generateNumber(num) {
 }
 
 export function checkResult(correctAnswer, playerGuess) {
-  return correctAnswer == playerGuess;
+  return String(correctAnswer) === String(playerGuess);
 }
 
 export function getGuess() {
