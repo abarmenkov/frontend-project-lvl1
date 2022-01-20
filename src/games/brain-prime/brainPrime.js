@@ -1,8 +1,6 @@
-import {
-  varies, generateNumber, getAnswer, startGame,
-} from '../gamesSettings.js';
+import generateNumber from '../getRandomNumber.js';
 
-varies.rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+export const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 function isPrime(num) {
   for (let i = 2; i < num; i += 1) {
@@ -13,10 +11,9 @@ function isPrime(num) {
   return num > 1;
 }
 
-varies.generateRound = function () {
-  varies.generatedNumber = generateNumber(varies.maxNumber);
-  varies.question = varies.generatedNumber;
-  varies.correctAnswer = getAnswer(isPrime(varies.generatedNumber));
-};
-
-export default startGame;
+export default function primeGame() {
+  const randomNumber = generateNumber(30);
+  const correctAnswer = isPrime(randomNumber) ? 'yes' : 'no';
+  const question = `Question: ${randomNumber}`;
+  return [question, correctAnswer];
+}

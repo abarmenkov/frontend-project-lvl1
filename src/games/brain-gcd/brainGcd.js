@@ -1,8 +1,6 @@
-import {
-  varies, generateNumber, startGame,
-} from '../gamesSettings.js';
+import generateNumber from '../getRandomNumber.js';
 
-varies.rules = 'Find the greatest common divisor of given numbers.';
+export const rule = 'Find the greatest common divisor of given numbers.';
 
 function NOD(x, y) {
   if (y > x) return NOD(y, x);
@@ -10,11 +8,10 @@ function NOD(x, y) {
   return NOD(y, x % y);
 }
 
-varies.generateRound = function () {
-  varies.generatedNumber = generateNumber(varies.maxNumber);
-  varies.generatedSecondNumber = generateNumber(varies.maxNumber);
-  varies.question = `${varies.generatedNumber} ${varies.generatedSecondNumber}`;
-  varies.correctAnswer = NOD(varies.generatedNumber, varies.generatedSecondNumber);
-};
-
-export default startGame;
+export default function gcdGame() {
+  const randomNumber1 = generateNumber();
+  const randomNumber2 = generateNumber();
+  const correctAnswer = NOD(randomNumber1, randomNumber2);
+  const question = `${randomNumber1} ${randomNumber2}`;
+  return [question, String(correctAnswer)];
+}

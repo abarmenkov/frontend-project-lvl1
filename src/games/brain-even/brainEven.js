@@ -1,17 +1,13 @@
-import {
-  varies, generateNumber, getAnswer, startGame,
-} from '../gamesSettings.js';
+import generateNumber from '../getRandomNumber.js';
 
-varies.rules = 'Answer yes if the number is even, otherwise answer no.';
+export const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function isEven(num) {
   return num % 2 === 0;
 }
 
-varies.generateRound = function () {
-  varies.generatedNumber = generateNumber(varies.maxNumber);
-  varies.question = varies.generatedNumber;
-  varies.correctAnswer = getAnswer(isEven(varies.generatedNumber));
-};
-
-export default startGame;
+export default function evenGame() {
+  const randomNumber = generateNumber();
+  const correctAnswer = isEven(randomNumber) ? 'yes' : 'no';
+  return [randomNumber, correctAnswer];
+}

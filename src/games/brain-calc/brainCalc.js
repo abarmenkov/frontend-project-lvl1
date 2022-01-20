@@ -1,12 +1,11 @@
-import {
-  varies, generateNumber, startGame,
-} from '../gamesSettings.js';
+import generateNumber from '../getRandomNumber.js';
 
-varies.rules = 'What is the result of the expression?';
+export const rule = 'What is the result of the expression?';
+const signList = ['+', '-', '*'];
 
 function generateSign(num) {
   const index = generateNumber(num);
-  return varies.signList[index];
+  return signList[index];
 }
 
 function sum(num1, num2) {
@@ -22,21 +21,22 @@ function subtract(num1, num2) {
 }
 
 function getAnswer(num1, num2, sign) {
+  let answer = '';
   if (sign === '+') {
-    varies.correctAnswer = sum(num1, num2);
+    answer = sum(num1, num2);
   } else if (sign === '-') {
-    varies.correctAnswer = subtract(num1, num2);
+    answer = subtract(num1, num2);
   } else {
-    varies.correctAnswer = multiply(num1, num2);
+    answer = multiply(num1, num2);
   }
+  return answer;
 }
 
-varies.generateRound = function () {
-  varies.generatedNumber = generateNumber(varies.maxNumber);
-  varies.generatedSecondNumber = generateNumber(varies.maxNumber);
-  varies.generatedSign = generateSign(varies.signList.length - 1);
-  varies.question = `${varies.generatedNumber} ${varies.generatedSign} ${varies.generatedSecondNumber}`;
-  getAnswer(varies.generatedNumber, varies.generatedSecondNumber, varies.generatedSign);
-};
-
-export default startGame;
+export default function calcGame() {
+  const randomNumber1 = generateNumber(10);
+  const randomNumber2 = generateNumber(10);
+  const randomSign = generateSign(signList.length - 1);
+  const question = `${randomNumber1} ${randomSign} ${randomNumber2}`;
+  const correctAnswer = getAnswer(randomNumber1, randomNumber2, randomSign);
+  return [question, String(correctAnswer)];
+}

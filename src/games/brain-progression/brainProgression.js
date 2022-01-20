@@ -1,35 +1,20 @@
-import {
-  varies, generateNumber, startGame,
-} from '../gamesSettings.js';
+import generateNumber from '../getRandomNumber.js';
 
-varies.rules = 'What number is missing in the progression?';
+export const rule = 'What number is missing in the progression?';
 
-function getProgressionStep(num) {
-  return generateNumber(num) + 1;
-}
-
-function getHideIndex(length) {
-  return generateNumber(length - 1);
-}
-
-function generateArr(step, num) {
+export default function progressionGame(num = 10, length = 6) {
   const arr = [];
   let arrLength = generateNumber(num);
-  if (arrLength < varies.length) {
-    arrLength = varies.length;
+  if (arrLength < length) {
+    arrLength = length;
   }
-  const progressionStep = getProgressionStep(step);
+  const progressionStep = generateNumber(num) + 1;
   const firstNumber = generateNumber(num);
+  const hideIndex = generateNumber(arrLength - 1);
   arr.push(firstNumber);
   for (let i = 1; i < arrLength; i += 1) {
     arr[i] = arr[i - 1] + progressionStep;
   }
-  varies.correctAnswer = Number(arr.splice(getHideIndex(arrLength), 1, '..').join());
-  return arr.join(' ');
+  const correctAnswer = arr.splice(hideIndex, 1, '..').join();
+  return [arr.join(' '), correctAnswer];
 }
-
-varies.generateRound = function () {
-  varies.question = generateArr(varies.maxStep, varies.maxNumber);
-};
-
-export default startGame;
