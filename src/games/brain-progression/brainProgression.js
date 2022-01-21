@@ -2,19 +2,26 @@ import generateNumber from '../getRandomNumber.js';
 
 export const rule = 'What number is missing in the progression?';
 
-export default function progressionGame(num = 10, length = 6) {
+const generateProgression = (firstNumber, progressionStep, arrLength) => {
   const arr = [];
-  let arrLength = generateNumber(num);
-  if (arrLength < length) {
-    arrLength = length;
-  }
-  const progressionStep = generateNumber(num) + 1;
-  const firstNumber = generateNumber(num);
-  const hideIndex = generateNumber(arrLength - 1);
   arr.push(firstNumber);
   for (let i = 1; i < arrLength; i += 1) {
     arr[i] = arr[i - 1] + progressionStep;
   }
-  const correctAnswer = arr.splice(hideIndex, 1, '..').join();
-  return [arr.join(' '), correctAnswer];
-}
+  return arr;
+};
+
+const progressionGame = (length = 6) => {
+  let arrLength = generateNumber(length, 10);
+  if (arrLength < length) {
+    arrLength = length;
+  }
+  const progressionStep = generateNumber(1, 10);
+  const firstNumber = generateNumber(1, 10);
+  const hideIndex = generateNumber(0, arrLength - 1);
+  const progression = generateProgression(firstNumber, progressionStep, arrLength);
+  const correctAnswer = progression.splice(hideIndex, 1, '..').join();
+  return [progression.join(' '), correctAnswer];
+};
+
+export default progressionGame;

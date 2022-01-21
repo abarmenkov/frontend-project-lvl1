@@ -1,3 +1,3 @@
-export default function generateNumber(num = 100) {
-  return Math.round(Math.random() * num);
-}
+const generateNumber = (min = 1, max = 100) => Math.round(Math.random() * (max - min + 1)) + min;
+
+export default generateNumber;

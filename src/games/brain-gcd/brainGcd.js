@@ -2,16 +2,18 @@ import generateNumber from '../getRandomNumber.js';
 
 export const rule = 'Find the greatest common divisor of given numbers.';
 
-function NOD(x, y) {
-  if (y > x) return NOD(y, x);
+const getGcd = (x, y) => {
+  if (y > x) return getGcd(y, x);
   if (!y) return x;
-  return NOD(y, x % y);
-}
+  return getGcd(y, x % y);
+};
 
-export default function gcdGame() {
+const gcdGame = () => {
   const randomNumber1 = generateNumber();
   const randomNumber2 = generateNumber();
-  const correctAnswer = NOD(randomNumber1, randomNumber2);
+  const correctAnswer = getGcd(randomNumber1, randomNumber2);
   const question = `${randomNumber1} ${randomNumber2}`;
   return [question, String(correctAnswer)];
-}
+};
+
+export default gcdGame;
