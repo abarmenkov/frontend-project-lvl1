@@ -1,14 +1,14 @@
 [![Actions Status](https://github.com/abarmenkov/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/abarmenkov/frontend-project-lvl1/actions) [![Maintainability](https://api.codeclimate.com/v1/badges/1c651e5607bec076737d/maintainability)](https://codeclimate.com/github/abarmenkov/frontend-project-lvl1/maintainability) [![Build Status](https://github.com/hexlet-boilerplates/nodejs-package/workflows/Node%20CI/badge.svg)](https://github.com/abarmenkov/frontend-project-lvl1/actions/workflows/node.js.yml)
 
 ## Brain Games
-### This is a set of 5 console mini-games to level up your brain:
-- brain-even - determination of an even number
-- brain-calc - calculation of an arithmetic expressions
-- brain-gcd - determination of the greatest common divisor
-- brain-prime - determination of a prime number
-- brain-progression - determination of a missing term in an arithmetic progression
+### Комплект из 5 консольных игр для тренировки математического мышления:
+- brain-even - определение четности числа
+- brain-calc - решение арифмитических выражений
+- brain-gcd - нахождение максимального общего делителя
+- brain-prime - проверка простое ли число
+- brain-progression - нахождение пропущенного числа в прогрессии
 
-### Installation and launch
+### Установка и запуск
 
 ```
 $ git clone git@github.com:ntym08/frontend-project-lvl1.git
