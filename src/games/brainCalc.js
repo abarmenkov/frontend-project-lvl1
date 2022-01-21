@@ -1,6 +1,7 @@
 import generateNumber from '../getRandomNumber.js';
+import startGame from '../index.js';
 
-export const rule = 'What is the result of the expression?';
+const rule = 'What is the result of the expression?';
 const signList = ['+', '-', '*'];
 
 const generateSign = (num) => {
@@ -8,28 +9,16 @@ const generateSign = (num) => {
   return signList[index];
 };
 
-const sum = (num1, num2) => num1 + num2;
-
-const multiply = (num1, num2) => num1 * num2;
-
-const subtract = (num1, num2) => num1 - num2;
-
 const getAnswer = (num1, num2, sign) => {
-  let result;
   switch (sign) {
     case '+':
-      result = sum(num1, num2);
-      break;
+      return num1 + num2;
     case '-':
-      result = subtract(num1, num2);
-      break;
+      return num1 - num2;
     case '*':
-      result = multiply(num1, num2);
-      break;
-    default:
-      break;
+      return num1 * num2;
+    default: throw new Error('Sign is not found');
   }
-  return result;
 };
 
 const calcGame = () => {
@@ -41,4 +30,6 @@ const calcGame = () => {
   return [question, String(correctAnswer)];
 };
 
-export default calcGame;
+export default () => {
+  startGame(rule, calcGame);
+};

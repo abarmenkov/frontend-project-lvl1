@@ -1,6 +1,7 @@
 import generateNumber from '../getRandomNumber.js';
+import startGame from '../index.js';
 
-export const rule = 'What number is missing in the progression?';
+const rule = 'What number is missing in the progression?';
 
 const generateProgression = (firstNumber, progressionStep, arrLength) => {
   const arr = [];
@@ -24,4 +25,6 @@ const progressionGame = (length = 6) => {
   return [progression.join(' '), correctAnswer];
 };
 
-export default progressionGame;
+export default () => {
+  startGame(rule, progressionGame);
+};

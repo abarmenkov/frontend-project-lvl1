@@ -1,6 +1,7 @@
 import generateNumber from '../getRandomNumber.js';
+import startGame from '../index.js';
 
-export const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
+const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const isEven = (num) => num % 2 === 0;
 
@@ -10,4 +11,6 @@ const evenGame = () => {
   return [randomNumber, correctAnswer];
 };
 
-export default evenGame;
+export default () => {
+  startGame(rule, evenGame);
+};
