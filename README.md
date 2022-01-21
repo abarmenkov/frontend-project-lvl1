@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/abarmenkov/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/abarmenkov/frontend-project-lvl1/actions)[![Maintainability](https://api.codeclimate.com/v1/badges/1c651e5607bec076737d/maintainability)](https://codeclimate.com/github/abarmenkov/frontend-project-lvl1/maintainability)[![Build Status](https://github.com/hexlet-boilerplates/nodejs-package/workflows/Node%20CI/badge.svg)](https://github.com/abarmenkov/frontend-project-lvl1/actions/workflows/node.js.yml)
+[![Actions Status](https://github.com/abarmenkov/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/abarmenkov/frontend-project-lvl1/actions) [![Maintainability](https://api.codeclimate.com/v1/badges/1c651e5607bec076737d/maintainability)](https://codeclimate.com/github/abarmenkov/frontend-project-lvl1/maintainability) [![Build Status](https://github.com/hexlet-boilerplates/nodejs-package/workflows/Node%20CI/badge.svg)](https://github.com/abarmenkov/frontend-project-lvl1/actions/workflows/node.js.yml)
 
 ## Brain Games
 ### This is a set of 5 console mini-games to level up your brain:

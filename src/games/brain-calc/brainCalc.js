@@ -4,7 +4,7 @@ export const rule = 'What is the result of the expression?';
 const signList = ['+', '-', '*'];
 
 const generateSign = (num) => {
-  const index = generateNumber(num);
+  const index = generateNumber(0, num);
   return signList[index];
 };
 
@@ -15,21 +15,26 @@ const multiply = (num1, num2) => num1 * num2;
 const subtract = (num1, num2) => num1 - num2;
 
 const getAnswer = (num1, num2, sign) => {
+  let result;
   switch (sign) {
     case '+':
-      return sum(num1, num2);
+      result = sum(num1, num2);
+      break;
     case '-':
-      return subtract(num1, num2);
+      result = subtract(num1, num2);
+      break;
     case '*':
-      return multiply(num1, num2);
+      result = multiply(num1, num2);
+      break;
     default:
-      throw new Error(`operation ${sign} is not supported`);
+      break;
   }
+  return result;
 };
 
 const calcGame = () => {
-  const randomNumber1 = generateNumber(10);
-  const randomNumber2 = generateNumber(10);
+  const randomNumber1 = generateNumber(1, 10);
+  const randomNumber2 = generateNumber(1, 10);
   const randomSign = generateSign(signList.length - 1);
   const question = `${randomNumber1} ${randomSign} ${randomNumber2}`;
   const correctAnswer = getAnswer(randomNumber1, randomNumber2, randomSign);
