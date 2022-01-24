@@ -4,8 +4,8 @@ import startGame from '../index.js';
 const rule = 'What is the result of the expression?';
 const signList = ['+', '-', '*'];
 
-const generateSign = (num) => {
-  const index = generateNumber(0, num);
+const generateSign = () => {
+  const index = generateNumber(0, signList.length - 1);
   return signList[index];
 };
 
@@ -24,7 +24,7 @@ const getAnswer = (num1, num2, sign) => {
 const calcGame = () => {
   const randomNumber1 = generateNumber(1, 10);
   const randomNumber2 = generateNumber(1, 10);
-  const randomSign = generateSign(signList.length - 1);
+  const randomSign = generateSign();
   const question = `${randomNumber1} ${randomSign} ${randomNumber2}`;
   const correctAnswer = getAnswer(randomNumber1, randomNumber2, randomSign);
   return [question, String(correctAnswer)];
