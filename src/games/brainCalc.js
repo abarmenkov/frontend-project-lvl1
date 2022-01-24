@@ -17,7 +17,7 @@ const getAnswer = (num1, num2, sign) => {
       return num1 - num2;
     case '*':
       return num1 * num2;
-    default: throw new Error('Sign is not found');
+    default: throw new Error(`${sign} is not found`);
   }
 };
 
